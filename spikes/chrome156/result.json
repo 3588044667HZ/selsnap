@@ -1,0 +1,145 @@
+{
+  "chrome": "E:\\selenium-mcp\\browsers\\chrome-win64\\chrome.exe",
+  "runs": [
+    {
+      "mode": "standard",
+      "sites": {
+        "https://bot.sannysoft.com/": {
+          "load_s": 10.9,
+          "body": "Intoli.com tests + additions\nTest Name\tResult\nUser Agent\n(Old)\n\tMozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36\nWebDriver\n(New)\n\tpresent (failed)\nWebDriver Advanced\tpassed\nChrome\n(New)\n\tpresent (passed)\nPermissions\n(New)\n\tdenied\nPlugins Length\n(Old)\n\t5\nPlugins is of type PluginArray\tpassed\nLanguages\n(Old)\n\tzh-CN\nWebGL Vendor\tCanvas has no webgl context\nWebGL Renderer\tCanvas has no webgl context\nBroken Image Dimensions\t16x16\nFingerprint Scanner tests\nSome details\nnavigator.cookieEnabled\ttrue\nnavigator.doNotTrack\tnull\nnavigator.msDoNotTrack\tundefined\nnavigator.sendBeacon\t\nnavigator.cookieEnabled\ttrue\nnavigator.userAgent\tMozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36\nnavigator.appName\tNetscape\nnavigator.vendor\tGoogle Inc.\nnavigator.appCodeName\tMozilla\nnavigator.getUserMedia\t\nnavigator.sayswho\tundefined\nnavigator.javaEnabled\tfalse\nnavigator.plugins\t{\"0\":{\"0\":{},\"1\":{}},\"1\":{\"0\":{},\"1\":{}},\"2\":{\"0\":{},\"1\":{}},\"3\":{\"0\":{},\"1\":{}},\"4\":{\"0\":{},\"1\":{}}}\nscreen.width\t800\nscreen.height\t600\nscreen.colorDepth\t24\nnavigator.language\tzh-CN\nnavigator.loadPurpose\tundefined\nnavigator.platform\tWin32\nnavigator.mediaDevices\tvideoinput: id =\naudiooutput: id =\n\nnavigator.getBattery details\tCharging: true\nLevel: 1\nCanvas1\t\nHash: 1118196126\n\nCanvas2\t\nHash: 1118196126\n\nCanvas3 (iframe sandbox)\t\nHash: 1118196126\n\nCanvas4 (iframe sandbox)\t\nHash: 1118196126\n\nCanvas5 (iframe)\t\nHash: 1118196126\nFp-collect info\n  ",
+          "body_len": 1549,
+          "chrome_obj": true,
+          "failed": 5,
+          "passed": 6,
+          "plugins": 5,
+          "ready": "complete",
+          "title": "Antibot",
+          "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "url": "https://bot.sannysoft.com/",
+          "webdriver": true,
+          "ok": true
+        },
+        "https://browserscan.net/bot-detection": {
+          "load_s": 10.78,
+          "body": "blog\nAntidetect Browser\nUtilities\nEN\nSign In\nHome\n>\nBot Detection\nTest Results:\nRobot\nWebdriver\nUser-Agent\nCDP\nNavigator\nBrowser bot detection guide\n\nBrowserScan detects automated activities on scripts or browsers. It analyzes various browser properties to determine whether the browser environment is controlled by a robot. Various human-machine verification products such as Cloudflare Turnstile and Google reCAPTCHA include this aspect of detection, which is usually divided into three categories:\n\nNormal bots - usually bots belonging to well-known search engines (Google, Bing, Baidu). It crawls websites to create a searchable index of content. A good bot can also be a monitoring or uptime checking tool.\nMalicious bots - Usually automated tools like Selenium, Puppeteer, Playwright or anything that pretends to be a good search bot. It can take over accounts, submit spam, steal passwords, scrape data, waste resources, and more.Discord bots.\nNo bots detected - the visitor could be a human using a regular browser.\nAd\nIdentification and bot detection\n\nThe combination of fingerprinting and bot detection gives you a powerful tool to protect against online fraud and produces the best results when used together.\n\nWebDriver\nRobot\nWebDriver Advance\nNormal\nSelenium\nRobot\nNightmareJS\nNormal\nPhantomJS\nNormal\nAwesomium\nNormal\nCef\nNormal\nCefSharp\nNormal\nCoaches\nNormal\nFMiner\nNormal\nBorn\nNormal\nPhantomas\nNormal\nRhino\nNormal\nWebdriverio\nNormal\nHeadless Chrome\nRobot\nChrome DevTools Protocol Detection\n\nDetectable use of developer tools to simulate browsers or control them via related developer protocols.\n\nCDP\nNormal\nDev Tool\nNormal\nNative Navigator\n\nDetect whether the Navigator is deceptive. Some browser plug-ins or robots will modify key attributes to achieve deception.\n\nvendorSub\nproductSub\n20030107\nvendor\nGoogle Inc.\nmaxTouchPoints\n0\nscheduling\n\"[object Scheduling]\"\nuserActivation\n\"[object UserActivation]\"\ngeolocation\n\"[object Geolocation]\"\ndoNotTrack\nwebkitTemporaryStorage\n\"[object DeprecatedStorageQuota]\"\nwebkitPersistentStorage\n\"[object DeprecatedStorageQuota]\"\nwindowControlsOverlay\n\"[object WindowControlsOverlay]\"\nhardwareConcurrency\n56\ncookieEnabled\ntrue\nappCodeName\nMozilla\nappName\nNetscape\nappVersion\n5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36\nplatform\nWin32\nproduct\nGecko\nuserAgent\nMozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36\nlanguage\nzh-CN\nlanguages\n[ \"zh-CN\" ]\nonLine\ntrue\nwebdriver\ntrue\nplugins\n\"[object PluginArray]\"\nmimeTypes\n\"[object MimeTypeArray]\"\npdfViewerEnabled\ntrue\nconnection\n\"[object NetworkInformation]\"\ngetGamepads\nfunction getGamepads() { [native code] }\njavaEnabled\nfunction javaEnabled() { [native code] }\nsendBeacon\nfunction sendBeacon() { [native code] }\nvibrate\nfunction vibrate() { [native code] }\nconstructor\nfunction Navigator() { [native code] }\ncpuPerformance\n4\nbluetooth\n\"[object Bluetooth]\"\nclipboard\n\"[object Clipboard]\"\ncredentials\n\"[object CredentialsContainer]\"\nkeyboard\n\"[object Keyboard]\"\nmanaged\n\"[object NavigatorManagedData]\"\nmediaDevices\n\"[object MediaDevices]\"\nserviceWorker\n\"[object ServiceWorkerContainer]\"\nvirtualKeyboard\n\"[object VirtualKeyboard]\"\nwakeLock\n\"[object WakeLock]\"\ndeviceMemory\n32\nuserAgentData\n{ \"brands\": [ { \"brand\": \"Not:A-Brand\", \"version\": \"8\" }, { \"brand\": \"Chromium\", \"version\": \"156\" } ], \"mobile\": false, \"platform\": \"Windows\" }\nlocks\n\"[object LockManager]\"\nstorage\n\"[object StorageManager]\"\ngpu\n\"[object GPU]\"\nlogin\n\"[object NavigatorLogin]\"\nink\n\"[object Ink]\"\nmediaCapabilities\n\"[object MediaCapabilities]\"\npermissions\n\"[object Permissions]\"\ndevicePosture\n\"[object DevicePosture]\"\nhid\n\"[object HID]\"\nmediaSession\n\"[object MediaSession]\"\npresentation\n\"[object Presentation]\"\nserial\n\"[object Serial]\"\nusb\n\"[object USB]\"\nxr\n\"[object XRSystem]\"\nstorageBuckets\n\"[object StorageBucketManager]\"\ncanShare\nfunction canShare() { [native code] }\nshare\nfunction share() { ",
+          "body_len": 7357,
+          "chrome_obj": true,
+          "failed": 0,
+          "passed": 0,
+          "plugins": 5,
+          "ready": "complete",
+          "title": "BrowserScan - Robot Detection/WebDriver | BrowserScan",
+          "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "url": "https://www.browserscan.net/bot-detection",
+          "webdriver": true,
+          "ok": true
+        },
+        "https://seleniumbase.io/demo_page": {
+          "load_s": 4.08,
+          "body": "Demo Page\n\t\nSeleniumBase\n\t\nHover Dropdown\n\t\nAutomation Practice\n\nText Input Field:\t\tTextarea:\t\nPre-Filled Text Field:\t\tButton:\tClick Me (Green)\nPlaceholder Text Field:\t\tRead-Only Text Field:\t\nHTML SVG with rect:\t\t\n\nParagraph with Text:\n\n\t\n\nThis Text is Green\n\n\nInput Slider Control:\t\tProgress Bar: (50%)\t\nSelect Dropdown:\t\nSet to 25%\nSet to 50%\nSet to 75%\nSet to 100%\n\tHTML Meter: (25%)\t\n\nImage in iFrame:\n\t   \n\tRadioButton 1:\tRadioButton 2:\nCheckBox: \tCheckBoxes:   \tPre-Check Box: \tCheckBox in iFrame:  \n\nURL Link:\tseleniumbase.com\tLink with Text:\tSeleniumBase on GitHub\nSeleniumBase Docs:\tseleniumbase.io\tThe Demo Page:\tSeleniumBase Demo Page",
+          "body_len": 645,
+          "chrome_obj": true,
+          "failed": 0,
+          "passed": 0,
+          "plugins": 5,
+          "ready": "complete",
+          "title": "Web Testing Page",
+          "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "url": "https://seleniumbase.io/demo_page",
+          "webdriver": true,
+          "ok": true
+        }
+      },
+      "errors": [],
+      "launch_s": 1.67,
+      "browser_version": "156.0.8078.80"
+    },
+    {
+      "mode": "uc",
+      "sites": {
+        "https://bot.sannysoft.com/": {
+          "load_s": 6.17,
+          "ok": false,
+          "error": "MaxRetryError: HTTPConnectionPool(host='localhost', port=65293): Max retries exceeded with url: /session/70d71a68d99821fb22e2ff1eb573bd71/execute/sync (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=65293): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。\"))"
+        },
+        "https://browserscan.net/bot-detection": {
+          "load_s": 4.65,
+          "ok": false,
+          "error": "MaxRetryError: HTTPConnectionPool(host='localhost', port=65293): Max retries exceeded with url: /session/70d71a68d99821fb22e2ff1eb573bd71/execute/sync (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=65293): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。\"))"
+        },
+        "https://seleniumbase.io/demo_page": {
+          "load_s": 2.42,
+          "ok": false,
+          "error": "MaxRetryError: HTTPConnectionPool(host='localhost', port=65293): Max retries exceeded with url: /session/70d71a68d99821fb22e2ff1eb573bd71/execute/sync (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=65293): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。\"))"
+        }
+      },
+      "errors": [
+        "MaxRetryError: HTTPConnectionPool(host='localhost', port=65293): Max retries exceeded with url: /session/70d71a68d99821fb22e2ff1eb573bd71/execute/sync (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=65293): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。\"))",
+        "MaxRetryError: HTTPConnectionPool(host='localhost', port=65293): Max retries exceeded with url: /session/70d71a68d99821fb22e2ff1eb573bd71/execute/sync (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=65293): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。\"))",
+        "MaxRetryError: HTTPConnectionPool(host='localhost', port=65293): Max retries exceeded with url: /session/70d71a68d99821fb22e2ff1eb573bd71/execute/sync (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=65293): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。\"))"
+      ],
+      "launch_s": 8.61,
+      "browser_version": "156.0.8078.80"
+    },
+    {
+      "mode": "cdp",
+      "sites": {
+        "https://bot.sannysoft.com/": {
+          "load_s": 3.97,
+          "title": "Antibot",
+          "url": "https://bot.sannysoft.com/",
+          "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "webdriver": false,
+          "plugins": 5,
+          "chrome_obj": true,
+          "ready": "interactive",
+          "body_len": 13955,
+          "passed": 30,
+          "failed": 0,
+          "body": "Intoli.com tests + additions\nTest Name\tResult\nUser Agent\n(Old)\n\tMozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36\nWebDriver\n(New)\n\tmissing (passed)\nWebDriver Advanced\tpassed\nChrome\n(New)\n\tpresent (passed)\nPermissions\n(New)\n\tprompt\nPlugins Length\n(Old)\n\t5\nPlugins is of type PluginArray\tpassed\nLanguages\n(Old)\n\tzh-CN\nWebGL Vendor\tGoogle Inc. (AMD)\nWebGL Renderer\tANGLE (AMD, AMD Radeon R7 200 Series (0x00006613) Direct3D11 vs_5_0 ps_5_0, D3D11)\nBroken Image Dimensions\t\nFingerprint Scanner tests\nPHANTOM_UA\tok\t\n{\n     \"userAgent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36\"\n}\n\nPHANTOM_PROPERTIES\tok\t\n{\n     \"attributesFound\": [\n          false,\n          false,\n          false\n     ]\n}\n\nPHANTOM_ETSL\tok\t\n{\n     \"etsl\": 33\n}\n\nPHANTOM_LANGUAGE\tok\t\n{\n     \"languages\": [\n          \"zh-CN\"\n     ]\n}\n\nPHANTOM_WEBSOCKET\tok\t\n{}\n\nMQ_SCREEN\tok\t\n{}\n\nPHANTOM_OVERFLOW\tok\t\n{\n     \"depth\": 15059,\n     \"errorMessage\": \"Maximum call stack size exceeded\",\n     \"errorName\": \"RangeError\",\n     \"errorStacklength\": 846\n}\n\nPHANTOM_WINDOW_HEIGHT\tok\t\n{\n     \"wInnerHeight\": 689,\n     \"wOuterHeight\": 840,\n     \"wOuterWidth\": 1280,\n     \"wInnerWidth\": 1264,\n     \"wScreenX\": 20,\n     \"wPageXOffset\": 0,\n     \"wPageYOffset\": 0,\n     \"cWidth\": 1233,\n     \"cHeight\": 1849,\n     \"sWidth\": 800,\n     \"sHeight\": 600,\n     \"sAvailWidth\": 800,\n     \"sAvailHeight\": 600,\n     \"sColorDepth\": 24,\n     \"sPixelDepth\": 24,\n     \"wDevicePixelRatio\": 1\n}\n\nHEADCHR_UA\tok\t\n{\n     \"userAgent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36\"\n}\n\nHEADCHR_CHROME_OBJ\tok\t\n{}\n\nHEADCHR_PERMISSIONS\tok\t\n{}\n\nHEADCHR_PLUGINS\tok\t\n{\n     \"plugins\": [\n          \"PDF Viewer::Portable Document Format::internal-pdf-viewer::__application/pdf~pdf~Portable Document Format,text/pdf~pdf~Portable Document Format\",\n          \"Chrome PDF Viewer::Portable Document Format::internal-pdf-viewer::__application/pdf~pdf~Portable Document Format,text/pdf~pdf~Portable Document Format\",\n          \"Chromium PDF Viewer::Portable Document Format::internal-pdf-viewer::__application/pdf~pdf~Portable Document Format,text/pdf~pdf~Portable Document Format\",\n          \"Microsoft Edge PDF Viewer::Portable Document Format::internal-pdf-viewer::__application/pdf~pdf~Portable Document Format,text/pdf~pdf~Portable Document Format\",\n          \"WebKit built-in PDF::Portable Document Format::internal-pdf-viewer::__application/pdf~pdf~Portable Document Format,text/pdf~pdf~Portable Document Format\"\n     ]\n}\n\nHEADCHR_IFRAME\tok\t\n{}\n\nCHR_DEBUG_TOOLS\tok\t\n{}\n\nSELENIUM_DRIVER\tok\t\n{\n     \"attributesFound\": [\n          false,\n          false,\n          false,\n          false,\n          false,\n          false,\n          false,\n          false,\n          false,\n          false,\n          false,\n          false,\n          false,\n          false,\n          false,\n          false,\n          false\n     ]\n}\n\nCHR_BATTERY\tok\t\n{}\n\nCHR_MEMORY\tok\t\n{}\n\nTRANSPARENT_PIXEL\tok\t\n{\n     \"0\": 0,\n     \"1\": 0,\n     \"2\": 0,\n     \"3\": 0\n}\n\nSEQUENTUM\tok\t\n{}\n\nVIDEO_CODECS\tok\t\n{\n     \"h264\": \"probably\"\n}\nSome details\nnavigator.cookieEnabled\ttrue\nnavigator.doNotTrack\tnull\nnavigator.msDoNotTrack\tundefined\nnavigator.sendBeacon\t\nnavigator.cookieEnabled\ttrue\nnavigator.userAgent\tMozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36\nnavigator.appName\tNetscape\nnavigator.vendor\tGoogle Inc.\nnavigator.appCodeName\tMozilla\nnavigator.getUserMedia\t\nnavigator.sayswho\tundefined\nnavigator.javaEnabled\tfalse\nnavigator.plugins\t{\"0\":{\"0\":{},\"1\":{}},\"1\":{\"0\":{},\"1\":{}},\"2\":{\"0\":{},\"1\":{}},\"3\":{\"0\":{},\"1\":{}},\"4\":{\"0\":{},\"1\":{}}}\nscreen.width\t800\nscreen.height\t600\nscreen.colorDepth\t24\nnavigator.language\tzh-CN\nnavigator.loadPurpose\tundefined\nnavigator.platform\tWin32\nnavigator.mediaDevices\tvideoinput: id =\naudiooutput: id =\n\nnavigator.getBattery deta",
+          "ok": true
+        },
+        "https://browserscan.net/bot-detection": {
+          "load_s": 6.26,
+          "title": "BrowserScan - Robot Detection/WebDriver | BrowserScan",
+          "url": "https://www.browserscan.net/bot-detection",
+          "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "webdriver": false,
+          "plugins": 5,
+          "chrome_obj": true,
+          "ready": "complete",
+          "body_len": 7252,
+          "passed": 0,
+          "failed": 0,
+          "body": "blog\nAntidetect Browser\nUtilities\nEN\nSign In\nHome\n>\nBot Detection\nTest Results:\nNormal\nWebdriver\nUser-Agent\nCDP\nNavigator\nBrowser bot detection guide\n\nBrowserScan detects automated activities on scripts or browsers. It analyzes various browser properties to determine whether the browser environment is controlled by a robot. Various human-machine verification products such as Cloudflare Turnstile and Google reCAPTCHA include this aspect of detection, which is usually divided into three categories:\n\nNormal bots - usually bots belonging to well-known search engines (Google, Bing, Baidu). It crawls websites to create a searchable index of content. A good bot can also be a monitoring or uptime checking tool.\nMalicious bots - Usually automated tools like Selenium, Puppeteer, Playwright or anything that pretends to be a good search bot. It can take over accounts, submit spam, steal passwords, scrape data, waste resources, and more.Discord bots.\nNo bots detected - the visitor could be a human using a regular browser.\nAd\nIdentification and bot detection\n\nThe combination of fingerprinting and bot detection gives you a powerful tool to protect against online fraud and produces the best results when used together.\n\nWebDriver\nNormal\nWebDriver Advance\nNormal\nSelenium\nNormal\nNightmareJS\nNormal\nPhantomJS\nNormal\nAwesomium\nNormal\nCef\nNormal\nCefSharp\nNormal\nCoaches\nNormal\nFMiner\nNormal\nBorn\nNormal\nPhantomas\nNormal\nRhino\nNormal\nWebdriverio\nNormal\nHeadless Chrome\nNormal\nChrome DevTools Protocol Detection\n\nDetectable use of developer tools to simulate browsers or control them via related developer protocols.\n\nCDP\nNormal\nDev Tool\nNormal\nNative Navigator\n\nDetect whether the Navigator is deceptive. Some browser plug-ins or robots will modify key attributes to achieve deception.\n\nvendorSub\nproductSub\n20030107\nvendor\nGoogle Inc.\nmaxTouchPoints\n0\nscheduling\n\"[object Scheduling]\"\nuserActivation\n\"[object UserActivation]\"\ngeolocation\n\"[object Geolocation]\"\ndoNotTrack\nwebkitTemporaryStorage\n\"[object DeprecatedStorageQuota]\"\nwebkitPersistentStorage\n\"[object DeprecatedStorageQuota]\"\nwindowControlsOverlay\n\"[object WindowControlsOverlay]\"\nhardwareConcurrency\n56\ncookieEnabled\ntrue\nappCodeName\nMozilla\nappName\nNetscape\nappVersion\n5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36\nplatform\nWin32\nproduct\nGecko\nuserAgent\nMozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36\nlanguage\nzh-CN\nlanguages\n[ \"zh-CN\" ]\nonLine\ntrue\nwebdriver\nfalse\nplugins\n\"[object PluginArray]\"\nmimeTypes\n\"[object MimeTypeArray]\"\npdfViewerEnabled\ntrue\nconnection\n\"[object NetworkInformation]\"\ngetGamepads\nfunction getGamepads() { [native code] }\njavaEnabled\nfunction javaEnabled() { [native code] }\nsendBeacon\nfunction sendBeacon() { [native code] }\nvibrate\nfunction vibrate() { [native code] }\nconstructor\nfunction Navigator() { [native code] }\ncpuPerformance\n4\nbluetooth\n\"[object Bluetooth]\"\nclipboard\n\"[object Clipboard]\"\ncredentials\n\"[object CredentialsContainer]\"\nkeyboard\n\"[object Keyboard]\"\nmanaged\n\"[object NavigatorManagedData]\"\nmediaDevices\n\"[object MediaDevices]\"\nserviceWorker\n\"[object ServiceWorkerContainer]\"\nvirtualKeyboard\n\"[object VirtualKeyboard]\"\nwakeLock\n\"[object WakeLock]\"\ndeviceMemory\n32\nuserAgentData\n{ \"brands\": [], \"mobile\": false, \"platform\": \"\" }\nlocks\n\"[object LockManager]\"\nstorage\n\"[object StorageManager]\"\ngpu\n\"[object GPU]\"\nlogin\n\"[object NavigatorLogin]\"\nink\n\"[object Ink]\"\nmediaCapabilities\n\"[object MediaCapabilities]\"\npermissions\n\"[object Permissions]\"\ndevicePosture\n\"[object DevicePosture]\"\nhid\n\"[object HID]\"\nmediaSession\n\"[object MediaSession]\"\npresentation\n\"[object Presentation]\"\nserial\n\"[object Serial]\"\nusb\n\"[object USB]\"\nxr\n\"[object XRSystem]\"\nstorageBuckets\n\"[object StorageBucketManager]\"\ncanShare\nfunction canShare() { [native code] }\nshare\nfunction share() { [native code] }\nclearAppBadge\nfunction clearAppBadge() { [native code] }\ngetBattery\nfunction getBattery()",
+          "ok": true
+        },
+        "https://seleniumbase.io/demo_page": {
+          "load_s": 2.5,
+          "title": "Web Testing Page",
+          "url": "https://seleniumbase.io/demo_page",
+          "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "webdriver": false,
+          "plugins": 5,
+          "chrome_obj": true,
+          "ready": "interactive",
+          "body_len": 645,
+          "passed": 0,
+          "failed": 0,
+          "body": "Demo Page\n\t\nSeleniumBase\n\t\nHover Dropdown\n\t\nAutomation Practice\n\nText Input Field:\t\tTextarea:\t\nPre-Filled Text Field:\t\tButton:\tClick Me (Green)\nPlaceholder Text Field:\t\tRead-Only Text Field:\t\nHTML SVG with rect:\t\t\n\nParagraph with Text:\n\n\t\n\nThis Text is Green\n\n\nInput Slider Control:\t\tProgress Bar: (50%)\t\nSelect Dropdown:\t\nSet to 25%\nSet to 50%\nSet to 75%\nSet to 100%\n\tHTML Meter: (25%)\t\n\nImage in iFrame:\n\t   \n\tRadioButton 1:\tRadioButton 2:\nCheckBox: \tCheckBoxes:   \tPre-Check Box: \tCheckBox in iFrame:  \n\nURL Link:\tseleniumbase.com\tLink with Text:\tSeleniumBase on GitHub\nSeleniumBase Docs:\tseleniumbase.io\tThe Demo Page:\tSeleniumBase Demo Page",
+          "ok": true
+        }
+      },
+      "errors": [],
+      "launch_s": 1.74,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "turnstile": {
+        "title": "Cloudflare Turnstile Test",
+        "attempted": true,
+        "solve_s": 2.18,
+        "success_marker": false,
+        "body_snippet": "\n\n\nCloudflare Turnstile Test\n\n\n"
+      }
+    }
+  ]
+}

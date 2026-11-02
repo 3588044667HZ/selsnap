@@ -1,0 +1,638 @@
+{
+  "spike": "SeleniumBase Pure CDP mode (sb_cdp.Chrome)",
+  "started_at": "2026-10-30T16:09:58+08:00",
+  "environment": {
+    "host_platform": "win32",
+    "python_executable": "E:\\selenium-mcp\\.venv\\Scripts\\python.exe",
+    "python_version": "3.11.9",
+    "seleniumbase_version": "4.56.5",
+    "selenium_version": "4.51.0",
+    "cwd": "E:\\selenium-mcp\\spikes\\cdp",
+    "work_dir": "E:\\selenium-mcp\\spikes\\cdp",
+    "chrome_specified_path": "C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe",
+    "chrome_registry_version": "109.0.5414.120",
+    "external_site_timeout_sec": 30.0,
+    "chrome_used_path": "C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Bin\\chrome.exe",
+    "chrome_specified_exists": false,
+    "cdp_browser_info": {
+      "Browser": "Chrome/109.0.5414.120",
+      "Protocol-Version": "1.3",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+      "V8-Version": "10.9.194.10",
+      "WebKit-Version": "537.36 (@772095164c7d5d4e73160f858efed3b5e87eca83)"
+    }
+  },
+  "signature": {
+    "inspect_signature": "(url=None, **kwargs)",
+    "parameters": [
+      "url",
+      "kwargs"
+    ],
+    "launch_named_kwargs": [
+      "config",
+      "user_data_dir",
+      "headless",
+      "incognito",
+      "guest",
+      "browser_executable_path",
+      "browser_args",
+      "xvfb_metrics",
+      "ad_block",
+      "sandbox",
+      "lang",
+      "host",
+      "port",
+      "xvfb",
+      "headed",
+      "expert",
+      "agent",
+      "proxy",
+      "tzone",
+      "geoloc",
+      "mobile",
+      "disable_csp",
+      "extension_dir",
+      "use_chromium",
+      "cft"
+    ],
+    "accepts_headless": true,
+    "accepts_user_data_dir": true,
+    "accepts_browser_executable_path": true
+  },
+  "method_matrix": [
+    {
+      "group": "navigation",
+      "method": "get",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "navigation",
+      "method": "open",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "navigation",
+      "method": "goto",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "navigation",
+      "method": "reload",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "navigation",
+      "method": "refresh",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "navigation",
+      "method": "go_back",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "navigation",
+      "method": "go_forward",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "navigation",
+      "method": "get_current_url",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "navigation",
+      "method": "get_title",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "navigation",
+      "method": "get_page_title",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "navigation",
+      "method": "assert_title",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "navigation",
+      "method": "assert_title_contains",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "navigation",
+      "method": "assert_url",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "navigation",
+      "method": "assert_url_contains",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "navigation",
+      "method": "get_navigation_history",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "javascript",
+      "method": "evaluate",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "javascript",
+      "method": "execute_script",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "javascript",
+      "method": "js_dumps",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "javascript",
+      "method": "get_page_source",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "javascript",
+      "method": "get_html",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "javascript",
+      "method": "get_beautiful_soup",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "screenshot_pdf",
+      "method": "save_screenshot",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "screenshot_pdf",
+      "method": "print_to_pdf",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "screenshot_pdf",
+      "method": "save_as_pdf",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "screenshot_pdf",
+      "method": "save_page_source",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "screenshot_pdf",
+      "method": "save_as_html",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "screenshot_pdf",
+      "method": "save_page",
+      "available": false,
+      "callable": false
+    },
+    {
+      "group": "tabs",
+      "method": "get_tabs",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "tabs",
+      "method": "get_active_tab",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "tabs",
+      "method": "open_new_tab",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "tabs",
+      "method": "open_new_window",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "tabs",
+      "method": "switch_to_tab",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "tabs",
+      "method": "switch_to_newest_tab",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "tabs",
+      "method": "switch_to_window",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "tabs",
+      "method": "switch_to_newest_window",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "tabs",
+      "method": "close_active_tab",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "tabs",
+      "method": "bring_active_window_to_front",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "cookies",
+      "method": "get_all_cookies",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "cookies",
+      "method": "set_all_cookies",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "cookies",
+      "method": "save_cookies",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "cookies",
+      "method": "load_cookies",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "cookies",
+      "method": "clear_cookies",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "cookies",
+      "method": "get_cookie_string",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "storage",
+      "method": "get_local_storage_item",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "storage",
+      "method": "set_local_storage_item",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "storage",
+      "method": "get_session_storage_item",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "storage",
+      "method": "set_session_storage_item",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "profile_window",
+      "method": "config",
+      "available": false,
+      "callable": false
+    },
+    {
+      "group": "profile_window",
+      "method": "driver",
+      "available": true,
+      "callable": false
+    },
+    {
+      "group": "profile_window",
+      "method": "page",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "profile_window",
+      "method": "get_user_agent",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "profile_window",
+      "method": "get_window",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "profile_window",
+      "method": "get_window_size",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "profile_window",
+      "method": "get_window_rect",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "profile_window",
+      "method": "set_window_rect",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "profile_window",
+      "method": "maximize",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "profile_window",
+      "method": "quit",
+      "available": true,
+      "callable": true
+    },
+    {
+      "group": "profile_window",
+      "method": "stop",
+      "available": true,
+      "callable": true
+    }
+  ],
+  "launch": {
+    "ok": true,
+    "headless_requested": true,
+    "launch_ms": 1223.7,
+    "url_after_launch": "about:blank",
+    "config": {
+      "headless": true,
+      "user_data_dir": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\uc_r8ep11jx",
+      "uses_custom_data_dir": false,
+      "incognito": false,
+      "guest": false,
+      "browser_executable_path": "C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Bin\\chrome.exe"
+    },
+    "instance_dir_count": 286
+  },
+  "navigation": {
+    "url": "https://seleniumbase.io/demo_page",
+    "ok": true,
+    "nav_ms": 1295.1,
+    "final_url": "https://seleniumbase.io/demo_page",
+    "title": "Web Testing Page",
+    "back_to_demo_ms": 447.8
+  },
+  "js_stats": {
+    "title": "Web Testing Page",
+    "url": "https://seleniumbase.io/demo_page",
+    "readyState": "complete",
+    "totalElements": 141,
+    "visibleElements": 96,
+    "interactiveElements": 19,
+    "navigatorWebdriver": false,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+    "language": "zh-CN",
+    "cookieEnabled": true,
+    "js_eval_ms": 4.47,
+    "navigator.webdriver": false,
+    "execute_script_alias_1_plus_1": 2
+  },
+  "dom_benchmark": {
+    "ok": true,
+    "file": "E:\\selenium-mcp\\spikes\\cdp\\dom_50k.html",
+    "file_bytes": 2747413,
+    "generated_spans": 50000,
+    "generate_ms": 46.6,
+    "load_ms": 317.1,
+    "query_total": 51006,
+    "query_ms_runs": [
+      1,
+      1,
+      1.3
+    ],
+    "query_ms_median": 1,
+    "full_scan_total": 51006,
+    "full_scan_visible": 51003,
+    "full_scan_ms_runs": [
+      80.8,
+      101.5,
+      88.1
+    ],
+    "full_scan_ms_median": 88.1
+  },
+  "artifacts": {
+    "png": {
+      "path": "E:\\selenium-mcp\\spikes\\cdp\\cdp_demo.png",
+      "bytes": 64010,
+      "width": 1264,
+      "height": 752,
+      "save_ms": 451.7
+    },
+    "pdf": {
+      "path": "E:\\selenium-mcp\\spikes\\cdp\\cdp_demo.pdf",
+      "bytes": 210352,
+      "save_ms": 1289.7
+    },
+    "html": {
+      "path": "E:\\selenium-mcp\\spikes\\cdp\\cdp_demo.html",
+      "bytes": 26598,
+      "save_ms": 21.7
+    }
+  },
+  "tabs": {
+    "count_before": 1,
+    "open_ms": 40.9,
+    "count_after_open": 2,
+    "new_tab_url": "file:///E:/selenium-mcp/spikes/cdp/dom_50k.html",
+    "new_tab_title": "CDP DOM 50k Benchmark",
+    "url_after_switch_0": "https://seleniumbase.io/demo_page",
+    "url_after_switch_newest": "file:///E:/selenium-mcp/spikes/cdp/dom_50k.html",
+    "count_after_close": 1,
+    "url_after_close_restore": "https://seleniumbase.io/demo_page",
+    "ok": true
+  },
+  "cookies": {
+    "ok": true,
+    "set_name": "cdp_spike_cookie",
+    "token": "cdp-1793347805",
+    "reload_ms": 109.5,
+    "document_cookie": "_ga=GA1.1.1717336364.1793347801; _ga_P5KFWRNLRN=GS2.1.s1793347801$o1$g1$t1793347802$j59$l0$h0; cdp_spike_cookie=cdp-1793347805",
+    "cdp_cookie_names": [
+      "_ga",
+      "_ga_P5KFWRNLRN",
+      "cdp_spike_cookie"
+    ],
+    "cdp_cookie_count": 3
+  },
+  "local_storage": {
+    "ok": true,
+    "key": "cdp_spike_ls",
+    "value_read_after_reload": "cdp-1793347805",
+    "session_storage_read": "cdp-1793347805"
+  },
+  "profile": {
+    "supported": true,
+    "user_data_dir": "E:\\selenium-mcp\\spikes\\cdp\\profile_cdp",
+    "local_storage_persisted": true,
+    "cookie_persisted": true,
+    "ok": true,
+    "first_launch_ms": 1282.8,
+    "first_nav_ms": 1122.7,
+    "first_ls_read": "profile-1793347806",
+    "first_cookie": "_ga=GA1.1.1971934993.1793347808; _ga_P5KFWRNLRN=GS2.1.s1793347808$o1$g0$t1793347808$j60$l0$h0; cdp_profile_cookie=profile-1793347806",
+    "config_uses_custom_data_dir": true,
+    "dir_exists_after_quit": true,
+    "default_subdir_exists": true,
+    "second_launch_ms": 1192.3,
+    "second_nav_ms": 357.9,
+    "second_ls_read": "profile-1793347806",
+    "second_cookie": "_ga=GA1.1.1971934993.1793347808; cdp_profile_cookie=profile-1793347806; _ga_P5KFWRNLRN=GS2.1.s1793347808$o1$g1$t1793347812$j56$l0$h0"
+  },
+  "tests": [
+    {
+      "name": "launch",
+      "status": "PASS",
+      "detail": "headless=True, 1223.7 ms, dir=286"
+    },
+    {
+      "name": "method_matrix",
+      "status": "PASS",
+      "detail": "56/58 候选方法存在"
+    },
+    {
+      "name": "navigation_demo",
+      "status": "PASS",
+      "detail": "1295.1 ms, title=Web Testing Page"
+    },
+    {
+      "name": "js_stats",
+      "status": "PASS",
+      "detail": "total=141 visible=96 interactive=19 webdriver=False"
+    },
+    {
+      "name": "dom_50k_benchmark",
+      "status": "PASS",
+      "detail": "load=317.1 ms query_med=1.00 ms full_med=88.10 ms total=51006"
+    },
+    {
+      "name": "screenshot_png",
+      "status": "PASS",
+      "detail": "64010 bytes, 1264x752"
+    },
+    {
+      "name": "pdf_print",
+      "status": "PASS",
+      "detail": "210352 bytes, 1289.7 ms"
+    },
+    {
+      "name": "save_page_source",
+      "status": "PASS",
+      "detail": "26598 bytes, 21.7 ms"
+    },
+    {
+      "name": "tabs",
+      "status": "PASS",
+      "detail": "counts=1->2->1, new_url=file:///E:/selenium-mcp/spikes/cdp/dom_50k.html"
+    },
+    {
+      "name": "cookie_reload",
+      "status": "PASS",
+      "detail": "cdp_spike_cookie in cdp cookies=True"
+    },
+    {
+      "name": "local_storage_reload",
+      "status": "PASS",
+      "detail": "read back='cdp-1793347805'"
+    },
+    {
+      "name": "main_quit",
+      "status": "PASS",
+      "detail": "quit"
+    },
+    {
+      "name": "profile_persistence",
+      "status": "PASS",
+      "detail": "ls='profile-1793347806' cookie_persisted=True"
+    }
+  ],
+  "exceptions": [],
+  "warnings": [
+    {
+      "level": "environment",
+      "message": "指定的 Chrome 路径不存在：C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe",
+      "action": "回退使用系统中唯一可用的 Chrome：C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Bin\\chrome.exe"
+    }
+  ],
+  "cleanup": {
+    "main_quit_ms": 184.5,
+    "default_temp_profile": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\uc_r8ep11jx",
+    "default_temp_profile_removed": true,
+    "orphan_check": "未执行 taskkill；仅通过 sb.quit() 关闭本次启动的 Chrome 进程"
+  },
+  "conclusion": {
+    "pure_cdp_usable": true,
+    "profile_supported": true,
+    "profile_local_storage_persisted": true,
+    "headless_supported": true,
+    "chrome_path_fallback": true,
+    "notes": [
+      "sb_cdp.Chrome(url=None, **kwargs) 将 kwargs 透传给 cdp_util.start，支持 headless/user_data_dir/browser_executable_path。",
+      "save_screenshot 为视口截图（wrapper 未暴露 full_page 参数），print_to_pdf 可用。",
+      "标签页 API 可用：get_tabs/open_new_tab/switch_to_tab/close_active_tab。",
+      "user_data_dir 为自定义目录时，quit 后目录保留；localStorage 与带过期时间的 cookie 可跨重启持久化。",
+      "默认临时 profile 在 quit 后由 SeleniumBase 删除；会话 cookie 不跨浏览器重启（需设置 expires/max-age）。"
+    ]
+  },
+  "finished_at": "2026-10-30T16:10:12+08:00",
+  "duration_sec": 14.0
+}

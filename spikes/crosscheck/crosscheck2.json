@@ -1,0 +1,161 @@
+{
+  "chrome": "C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Bin\\chrome.exe",
+  "edge": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "runs": [
+    {
+      "label": "standard-chrome109",
+      "sites": {
+        "https://bot.sannysoft.com/": {
+          "ok": false,
+          "error": "ReadTimeoutError: HTTPConnectionPool(host='localhost', port=51448): Read timed out. (read timeout=120)"
+        },
+        "https://browserscan.net/bot-detection": {
+          "ok": false,
+          "error": "ReadTimeoutError: HTTPConnectionPool(host='localhost', port=51448): Read timed out. (read timeout=120)"
+        },
+        "https://seleniumbase.io/demo_page": {
+          "load_s": 16.32,
+          "raw": "None",
+          "ok": true
+        }
+      },
+      "errors": [
+        "ReadTimeoutError: HTTPConnectionPool(host='localhost', port=51448): Read timed out. (read timeout=120)",
+        "ReadTimeoutError: HTTPConnectionPool(host='localhost', port=51448): Read timed out. (read timeout=120)"
+      ],
+      "launch_s": 1.7
+    },
+    {
+      "label": "cdp-chrome109",
+      "sites": {
+        "https://bot.sannysoft.com/": {
+          "load_s": 4.73,
+          "title": "Antibot",
+          "url": "https://bot.sannysoft.com/",
+          "ua": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "webdriver": false,
+          "plugins": 5,
+          "chrome_obj": true,
+          "ready": "interactive",
+          "body_len": 14266,
+          "html_len": 39707,
+          "passed": 31,
+          "failed": 0,
+          "body": "Intoli.com tests + additions\nTest Name\tResult\nUser Agent\n(Old)\n\tMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36\nWebDriver\n(New)\n\tmissing (passed)\nWebDriver Advanced\tpassed\nChrome\n(New)\n\tpresent (passed)\nPermissions\n(New)\n\tprompt\nPlugins Length\n(Old)\n\t5\nPlugins is of type PluginArray\tpassed\nLanguages\n(Old)\n\tzh-CN,zh\nWebGL Vendor\tGoogle Inc. (AMD)\nWebGL Renderer\tANGLE (AMD, AMD Radeon R7 200 Series Direct3D11 vs_5_0 ps_5_0, D3D11)\nBroken Image Dimensions\t16x16\nFingerprint Scanner tests\nPHANTOM_UA\tok\t\n{\n     \"userAgent\": \"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36\"\n}\n\nPHANTOM_PROPERTIES\tok\t\n{\n     \"attributesFound\": [\n          false,\n          false,\n          false\n     ]\n}\n\nPHANTOM_ETSL\tok\t\n{\n     \"etsl\": 33\n}\n\nPHANTOM_LANGUAGE\tok\t\n{\n     \"languages\": [\n          \"zh-CN\",\n          \"zh\"\n     ]\n}\n\nPHANTOM_WEBSOCKET\tok\t\n{\n     \"error\": \"Failed to construct 'WebSocket': The URL 'itsgonnafail' is invalid.\"\n}\n\nMQ_SCREEN\tok\t\n{}\n\nPHANTOM_OVERFLOW\tok\t\n{\n     \"depth\": 18348,\n     \"errorMessage\": \"Maximum call stack size exceeded\",\n     \"errorName\": \"RangeError\",\n     \"errorStacklength\": 894\n}\n\nPHANTOM_WINDOW_HEIGHT\tok\t\n{\n     \"wInnerHeight\": 752,\n     \"wOuterHeight\": 840,\n     \"wOuterWidth\": 1280,\n     \"wInnerWidth\": 1264,\n     \"wScreenX\": 20,\n     \"wPageXOffset\": 0,\n     \"wPageYOffset\": 0,\n     \"cWidth\": 1231,\n     \"cHeight\": 1695,\n     \"sWidth\": 1440,\n     \"sHeight\": 900,\n     \"sAvailWidth\": 1440,\n     \"sAvailHeight\": 900,\n     \"sColorDepth\": 24,\n     \"sPixelDepth\": 24,\n     \"wDevicePixelRatio\": 1\n}\n\nHEADCHR_UA\tok\t\n{\n     \"userAgent\": \"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36\"\n}\n\nHEADCHR_CHROME_OBJ\tok\t\n{}\n\nHEADCHR_PERMISSIONS\tok\t\n{}\n\nHEADCHR_PLUGINS\tok\t\n{\n     \"plugins\": [\n          \"PDF Viewer::Portable Document Format::internal-pdf-viewer::__application/pdf~pdf~Portable Document Format,text/pdf~pdf~Portable Document Format\",\n          \"Chrome PDF Viewer::Portable Document Format::internal-pdf-viewer::__application/pdf~pdf~Portable Document Format,text/pdf~pdf~Portable Document Format\",\n          \"Chromium PDF Viewer::Portable Document Format::internal-pdf-viewer::__application/pdf~pdf~Portable Document Format,text/pdf~pdf~Portable Document Format\",\n          \"Microsoft Edge PDF Viewer::Portable Document Format::internal-pdf-viewer::__application/pdf~pdf~Portable Document Format,text/pdf~pdf~Portable Document Format\",\n          \"WebKit built-in PDF::Portable Document Format::internal-pdf-viewer::__application/pdf~pdf~Portable Document Format,text/pdf~pdf~Portable Document Format\"\n     ]\n}\n\nHEADCHR_IFRAME\tok\t\n{}\n\nCHR_DEBUG_TOOLS\tok\t\n{}\n\nSELENIUM_DRIVER\tok\t\n{\n     \"attributesFound\": [\n          false,\n          false,\n          false,\n          false,\n          false,\n          false,\n          false,\n          false,\n          false,\n          false,\n          false,\n",
+          "ok": true
+        },
+        "https://browserscan.net/bot-detection": {
+          "load_s": 3.32,
+          "title": "BrowserScan - Robot Detection/WebDriver | BrowserScan",
+          "url": "https://www.browserscan.net/bot-detection",
+          "ua": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "webdriver": false,
+          "plugins": 5,
+          "chrome_obj": true,
+          "ready": "complete",
+          "body_len": 7819,
+          "html_len": 688144,
+          "passed": 0,
+          "failed": 0,
+          "body": "blog\nAntidetect Browser\nUtilities\nEN\nSign In\nHome\n>\nBot Detection\nTest Results:\nNormal\nWebdriver\nUser-Agent\nCDP\nNavigator\nBrowser bot detection guide\n\nBrowserScan detects automated activities on scripts or browsers. It analyzes various browser properties to determine whether the browser environment is controlled by a robot. Various human-machine verification products such as Cloudflare Turnstile and Google reCAPTCHA include this aspect of detection, which is usually divided into three categories:Bot Detection Service\n\nNormal bots - usually bots belonging to well-known search engines (Google, Bing, Baidu). It crawls websites to create a searchable index of content. A good bot can also be a monitoring or uptime checking tool.\nMalicious bots - Usually automated tools like Selenium, Puppeteer, Playwright or anything that pretends to be a good search bot. It can take over accounts, submit spam, steal passwords, scrape data, waste resources, and more.Discord bots.\nNo bots detected - the visitor could be a human using a regular browser.\nAd\nIdentification and bot detection\n\nThe combination of fingerprinting and bot detection gives you a powerful tool to protect against online fraud and produces the best results when used together.Compare Browsers\n\nWebDriver\nNormal\nWebDriver Advance\nNormal\nSelenium\nNormal\nNightmareJS\nNormal\nPhantomJS\nNormal\nAwesomium\nNormal\nCef\nNormal\nCefSharp\nNormal\nCoaches\nNormal\nFMiner\nNormal\nBorn\nNormal\nPhantomas\nNormal\nRhino\nNormal\nWebdriverio\nNormal\nHeadless Chrome\nNormal\nDiscover more\nBot Detection Service\nPlugin Detection Tool\nWebdriverIO Automation Guide\nHeadless Chrome Tutorial\nBot Prevention Software\nAutomation Tool Comparison\nSelenium Automation Course\nExplore Web Apps\nCompare Browsers\nChrome DevTools Protocol Detection\n\nDetectable use of developer tools to simulate browsers or control them via related developer protocols.Automation Tool Comparison\n\nCDP\nNormal\nDev Tool\nNormal\nNative Navigator\n\nDetect whether the Navigator is deceptive. Some browser plug-ins or robots will modify key attributes to achieve deception.\n\nvendorSub\nproductSub\n20030107\nvendor\nGoogle Inc.\nmaxTouchPoints\n0\nscheduling\n\"[object Scheduling]\"\nuserActivation\n\"[object UserActivation]\"\ndoNotTrack\ngeolocation\n\"[object Geolocation]\"\nconnection\n\"[object NetworkInformation]\"\nplugins\n\"[object PluginArray]\"\nmimeTypes\n\"[object MimeTypeArray]\"\npdfViewerEnabled\ntrue\nwebkitTemporaryStorage\n\"[object DeprecatedStorageQuota]\"\nwebkitPersistentStorage\n\"[object DeprecatedStorageQuota]\"\nhardwareConcurrency\n40\ncookieEnabled\ntrue\nappCodeName\nMozilla\nappName\nNetscape\nappVersion\n5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36\nplatform\nWin32\nproduct\nGecko\nuserAgent\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36\nlanguage\nzh-CN\nlanguages\n[ \"zh-CN\", \"zh\" ]\nonLine\ntrue\nwebdriver\nfalse\ngetGamepads\nfunction getGamepads() { [native code] }\njavaEnabled\nfunction javaEnabled() { [n",
+          "ok": true
+        },
+        "https://seleniumbase.io/demo_page": {
+          "load_s": 1.79,
+          "title": "Web Testing Page",
+          "url": "https://seleniumbase.io/demo_page",
+          "ua": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "webdriver": false,
+          "plugins": 5,
+          "chrome_obj": true,
+          "ready": "complete",
+          "body_len": 645,
+          "html_len": 25960,
+          "passed": 0,
+          "failed": 0,
+          "body": "Demo Page\n\t\nSeleniumBase\n\t\nHover Dropdown\n\t\nAutomation Practice\n\nText Input Field:\t\tTextarea:\t\nPre-Filled Text Field:\t\tButton:\tClick Me (Green)\nPlaceholder Text Field:\t\tRead-Only Text Field:\t\nHTML SVG with rect:\t\t\n\nParagraph with Text:\n\n\t\n\nThis Text is Green\n\n\nInput Slider Control:\t\tProgress Bar: (50%)\t\nSelect Dropdown:\t\nSet to 25%\nSet to 50%\nSet to 75%\nSet to 100%\n\tHTML Meter: (25%)\t\n\nImage in iFrame:\n\t   \n\tRadioButton 1:\tRadioButton 2:\nCheckBox: \tCheckBoxes:   \tPre-Check Box: \tCheckBox in iFrame:  \n\nURL Link:\tseleniumbase.com\tLink with Text:\tSeleniumBase on GitHub\nSeleniumBase Docs:\tseleniumbase.io\tThe Demo Page:\tSeleniumBase Demo Page",
+          "ok": true
+        }
+      },
+      "errors": [],
+      "launch_s": 1.26
+    },
+    {
+      "label": "standard-edge156",
+      "sites": {
+        "https://bot.sannysoft.com/": {
+          "load_s": 30.56,
+          "raw": "None",
+          "ok": true
+        },
+        "https://browserscan.net/bot-detection": {
+          "load_s": 2.12,
+          "raw": "None",
+          "ok": true
+        },
+        "https://seleniumbase.io/demo_page": {
+          "load_s": 0.83,
+          "raw": "None",
+          "ok": true
+        }
+      },
+      "errors": [],
+      "launch_s": 2.26
+    },
+    {
+      "label": "cdp-edge156",
+      "sites": {
+        "https://bot.sannysoft.com/": {
+          "load_s": 2.88,
+          "title": "Antibot",
+          "url": "https://bot.sannysoft.com/",
+          "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+          "webdriver": false,
+          "plugins": 5,
+          "chrome_obj": true,
+          "ready": "loading",
+          "body_len": -1,
+          "html_len": 940,
+          "passed": 0,
+          "failed": 0,
+          "body": "",
+          "ok": true
+        },
+        "https://browserscan.net/bot-detection": {
+          "load_s": 1.95,
+          "title": "BrowserScan - Robot Detection/WebDriver | BrowserScan",
+          "url": "https://www.browserscan.net/bot-detection",
+          "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+          "webdriver": false,
+          "plugins": 5,
+          "chrome_obj": true,
+          "ready": "complete",
+          "body_len": 8506,
+          "html_len": 741820,
+          "passed": 0,
+          "failed": 0,
+          "body": "blog\nAntidetect Browser\nUtilities\nEN\nSign In\nHome\n>\nBot Detection\nTest Results:\nNormal\nWebdriver\nUser-Agent\nCDP\nNavigator\nBrowser bot detection guide\n\nBrowserScan detects automated activities on scripts or browsers. It analyzes various browser properties to determine whether the browser environment is controlled by a robot. Various human-machine verification products such as Cloudflare Turnstile and Google reCAPTCHA include this aspect of detection, which is usually divided into three categories:Automation Tool Comparison\n\nNormal bots - usually bots belonging to well-known search engines (Google, Bing, Baidu). It crawls websites to create a searchable index of content. A good bot can also be a monitoring or uptime checking tool.\nMalicious bots - Usually automated tools like Selenium, Puppeteer, Playwright or anything that pretends to be a good search bot. It can take over accounts, submit spam, steal passwords, scrape data, waste resources, and more.Discord bots.\nNo bots detected - the visitor could be a human using a regular browser.\nAd\nIdentification and bot detection\n\nThe combination of fingerprinting and bot detection gives you a powerful tool to protect against online fraud and produces the best results when used together.Bot Detection Service\n\nWebDriver\nNormal\nWebDriver Advance\nNormal\nSelenium\nNormal\nNightmareJS\nNormal\nPhantomJS\nNormal\nAwesomium\nNormal\nCef\nNormal\nCefSharp\nNormal\nCoaches\nNormal\nFMiner\nNormal\nBorn\nNormal\nPhantomas\nNormal\nRhino\nNormal\nWebdriverio\nNormal\nHeadless Chrome\nNormal\nDiscover more\nBot Detection Service\nPlugin Detection Tool\nWebdriverIO Automation Guide\nHeadless Chrome Tutorial\nBot Prevention Software\nAutomation Tool Comparison\nSelenium Automation Course\nExplore Web Apps\nweb browsing\nChrome DevTools Protocol Detection\n\nDetectable use of developer tools to simulate browsers or control them via related developer protocols.\n\nCDP\nNormal\nDev Tool\nNormal\nNative Navigator\n\nDetect whether the Navigator is deceptive. Some browser plug-ins or robots will modify key attributes to achieve deception.Robot Detection System\n\nvendorSub\nproductSub\n20030107\nvendor\nGoogle Inc.\nmaxTouchPoints\n0\nscheduling\n\"[object Scheduling]\"\nuserActivation\n\"[object UserActivation]\"\ngeolocation\n\"[object Geolocation]\"\ndoNotTrack\nwebkitTemporaryStorage\n\"[object DeprecatedStorageQuota]\"\nwebkitPersistentStorage\n\"[object DeprecatedStorageQuota]\"\nwindowControlsOverlay\n\"[object WindowControlsOverlay]\"\nhardwareConcurrency\n40\ncookieEnabled\ntrue\nappCodeName\nMozilla\nappName\nNetscape\nappVersion\n5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0\nplatform\nWin32\nproduct\nGecko\nuserAgent\nMozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0\nlanguage\nzh-CN\nlanguages\n[ \"zh-CN\", \"en\", \"en-GB\", \"en-US\" ]\nonLine\ntrue\nwebdriver\nfalse\nplugins\n\"[object PluginArray]\"\nmimeTypes\n\"[object MimeTypeArray]\"\npdfViewerEnabled\ntrue\nconnection\n\"[object ",
+          "ok": true
+        },
+        "https://seleniumbase.io/demo_page": {
+          "load_s": 1.78,
+          "title": "Web Testing Page",
+          "url": "https://seleniumbase.io/demo_page",
+          "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+          "webdriver": false,
+          "plugins": 5,
+          "chrome_obj": true,
+          "ready": "complete",
+          "body_len": 645,
+          "html_len": 26002,
+          "passed": 0,
+          "failed": 0,
+          "body": "Demo Page\n\t\nSeleniumBase\n\t\nHover Dropdown\n\t\nAutomation Practice\n\nText Input Field:\t\tTextarea:\t\nPre-Filled Text Field:\t\tButton:\tClick Me (Green)\nPlaceholder Text Field:\t\tRead-Only Text Field:\t\nHTML SVG with rect:\t\t\n\nParagraph with Text:\n\n\t\n\nThis Text is Green\n\n\nInput Slider Control:\t\tProgress Bar: (50%)\t\nSelect Dropdown:\t\nSet to 25%\nSet to 50%\nSet to 75%\nSet to 100%\n\tHTML Meter: (25%)\t\n\nImage in iFrame:\n\t   \n\tRadioButton 1:\tRadioButton 2:\nCheckBox: \tCheckBoxes:   \tPre-Check Box: \tCheckBox in iFrame:  \n\nURL Link:\tseleniumbase.com\tLink with Text:\tSeleniumBase on GitHub\nSeleniumBase Docs:\tseleniumbase.io\tThe Demo Page:\tSeleniumBase Demo Page",
+          "ok": true
+        }
+      },
+      "errors": [],
+      "launch_s": 1.59
+    }
+  ]
+}

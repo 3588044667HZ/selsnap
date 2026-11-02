@@ -1,0 +1,1333 @@
+{
+  "generated_at": "2026-10-30T08:04:45.269573+00:00",
+  "environment": {
+    "cwd": "E:\\selenium-mcp\\spikes\\mcp_http",
+    "python_executable": "E:\\selenium-mcp\\.venv\\Scripts\\python.exe"
+  },
+  "api": {
+    "distribution": "mcp",
+    "version": "2.3.0",
+    "python": "3.11.9",
+    "fastmcp": {
+      "status": "unavailable",
+      "error": "ModuleNotFoundError: No module named 'mcp.server.fastmcp'. This is mcp 2.x, where FastMCP was renamed to MCPServer (from mcp.server.mcpserver import MCPServer) and other APIs changed; see the migration guide at https://py.sdk.modelcontextprotocol.io/v2/migration/#fastmcp-renamed-to-mcpserver or pin 'mcp<2' to keep running v1 code."
+    },
+    "server_class": "mcp.server.mcpserver.MCPServer",
+    "server_init_signature": "(self, name: 'str | None' = None, title: 'str | None' = None, description: 'str | None' = None, instructions: 'str | None' = None, website_url: 'str | None' = None, icons: 'list[Icon] | None' = None, version: 'str' = '', auth_server_provider: 'OAuthAuthorizationServerProvider[Any, Any, Any] | None' = None, token_verifier: 'TokenVerifier | None' = None, *, tools: 'list[Tool] | None' = None, resources: 'list[Resource] | None' = None, extensions: 'Sequence[Extension] | None' = None, debug: 'bool' = False, log_level: \"Literal['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL']\" = 'INFO', warn_on_duplicate_resources: 'bool' = True, warn_on_duplicate_tools: 'bool' = True, warn_on_duplicate_prompts: 'bool' = True, dependencies: 'list[str] | None' = None, lifespan: 'Callable[[MCPServer[LifespanResultT]], AbstractAsyncContextManager[LifespanResultT]] | None' = None, auth: 'AuthSettings | None' = None, resource_security: 'ResourceSecurity' = ResourceSecurity(reject_path_traversal=True, reject_absolute_paths=True, reject_null_bytes=True, exempt_params=frozenset()), request_state_security: 'RequestStateSecurity | None' = None, cache_hints: 'Mapping[CacheableMethod, CacheHint] | None' = None, subscriptions: 'SubscriptionBus | Literal[False] | None' = None, middleware: 'Sequence[ServerMiddleware[Any]] | None' = None)",
+    "server_run_signature": "(self, transport: \"Literal['stdio', 'sse', 'streamable-http']\" = 'stdio', **kwargs: 'Any') -> 'None'",
+    "run_streamable_http_async_signature": "(self, *, host: 'str' = '127.0.0.1', port: 'int' = 8000, streamable_http_path: 'str' = '/mcp', json_response: 'bool' = False, stateless_http: 'bool' = False, event_store: 'EventStore | None' = None, retry_interval: 'int | None' = None, max_request_body_size: 'int' = 4194304, session_idle_timeout: 'float | None' = 1800, max_sessions: 'int | None' = 10000, transport_security: 'TransportSecuritySettings | None' = None) -> 'None'",
+    "streamable_http_app_signature": "(self, *, streamable_http_path: 'str' = '/mcp', json_response: 'bool' = False, stateless_http: 'bool' = False, event_store: 'EventStore | None' = None, retry_interval: 'int | None' = None, max_request_body_size: 'int' = 4194304, session_idle_timeout: 'float | None' = 1800, max_sessions: 'int | None' = 10000, transport_security: 'TransportSecuritySettings | None' = None, host: 'str' = '127.0.0.1') -> 'Starlette'",
+    "streamable_http_transport_params": {
+      "host": "127.0.0.1",
+      "port": 8000,
+      "streamable_http_path": "/mcp",
+      "json_response": false,
+      "stateless_http": false,
+      "event_store": null,
+      "retry_interval": null,
+      "max_request_body_size": 4194304,
+      "session_idle_timeout": 1800,
+      "max_sessions": 10000,
+      "transport_security": null
+    },
+    "server_tool_decorator_signature": "(self, name: 'str | None' = None, title: 'str | None' = None, description: 'str | None' = None, annotations: 'ToolAnnotations | None' = None, icons: 'list[Icon] | None' = None, meta: 'dict[str, Any] | None' = None, structured_output: 'bool | None' = None) -> 'Callable[[_CallableT], _CallableT]'",
+    "client_module": "mcp.client.streamable_http",
+    "client_function": "streamable_http_client",
+    "client_function_signature": "(url: 'str', *, http_client: 'httpx2.AsyncClient | None' = None, terminate_on_close: 'bool' = True, max_sse_event_size: 'int | None' = 1048576) -> 'AsyncGenerator[TransportStreams, None]'",
+    "client_yields": "2-tuple (read_stream, write_stream)，不再返回 get_session_id",
+    "legacy_client_function_present": false,
+    "client_session_import": "from mcp import ClientSession（实现在 mcp.client.session）",
+    "session_id_header": "mcp-session-id",
+    "http_library": "httpx2 2.16.0"
+  },
+  "auth": {
+    "bearer_on_custom_service": "可行",
+    "server_side": "MCPServer 自带 auth/token_verifier 参数面向 OAuth 资源服务器；自研服务更简单的方式是在 ASGI/Starlette 层加中间件或反向代理校验 Authorization: Bearer <token>，未通过返回 401。",
+    "client_side": "streamable_http_client 接受自定义 httpx2.AsyncClient，可在其 headers/auth 中统一注入 Bearer；也可用 create_mcp_http_client(headers=...)。SDK 会跟随同源重定向，不会把请求带到其他源。",
+    "caveats": [
+      "鉴权失败需在 initialize 前返回 401，客户端会收到 HTTP 错误而非 JSON-RPC 错误。",
+      "若使用 SDK 内置 OAuth 流程，需要 OAuthAuthorizationServerProvider/TokenVerifier，复杂度高于自研 Bearer。",
+      "Streamable HTTP 的 GET SSE 长连接与 DELETE 请求同样会携带该头，中间件需放行 POST/GET/DELETE。"
+    ],
+    "implemented": false
+  },
+  "server": {
+    "preferred_port": 8765,
+    "preferred_port_free": true,
+    "fallback_used": false,
+    "port": 8765,
+    "stdout_log": "E:\\selenium-mcp\\spikes\\mcp_http\\server.stdout.log",
+    "stderr_log": "E:\\selenium-mcp\\spikes\\mcp_http\\server.stderr.log",
+    "pid": 17964,
+    "exit_code": 1,
+    "termination": "subprocess.terminate() + wait()；Windows 等价于强制结束，退出码 1 属预期",
+    "port_released": true,
+    "port_release_check": "bind(127.0.0.1:8765) 成功",
+    "stdout_tail": [
+      "INFO:     127.0.0.1:64529 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64530 - \"POST /mcp HTTP/1.1\" 202 Accepted",
+      "INFO:     127.0.0.1:64531 - \"GET /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64532 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64533 - \"POST /mcp HTTP/1.1\" 202 Accepted",
+      "INFO:     127.0.0.1:64534 - \"GET /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64535 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64536 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64537 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64539 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64540 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64541 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64542 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64543 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64544 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64545 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64546 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64547 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64548 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64549 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64550 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64551 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64552 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64553 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64554 - \"DELETE /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64555 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64556 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64557 - \"POST /mcp HTTP/1.1\" 202 Accepted",
+      "INFO:     127.0.0.1:64558 - \"GET /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64559 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64560 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64561 - \"POST /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64562 - \"DELETE /mcp HTTP/1.1\" 200 OK",
+      "INFO:     127.0.0.1:64563 - \"DELETE /mcp HTTP/1.1\" 200 OK"
+    ],
+    "stderr_tail": [
+      "                             | vents.py:84 in _run        |                    ",
+      "                             |                            |                    ",
+      "                             |    81                      |                    ",
+      "                             |    82     def _run(self):  |                    ",
+      "                             |    83         try:         |                    ",
+      "                             | >  84             self._co |                    ",
+      "                             |    85         except (Syst |                    ",
+      "                             |    86             raise    |                    ",
+      "                             |    87         except BaseE |                    ",
+      "                             |                            |                    ",
+      "                             | D:\\python311\\Lib\\asyncio\\p |                    ",
+      "                             | roactor_events.py:165 in   |                    ",
+      "                             | _call_connection_lost      |                    ",
+      "                             |                            |                    ",
+      "                             |   162             # just c |                    ",
+      "                             |   163             # cure i |                    ",
+      "                             |   164             if hasat |                    ",
+      "                             | > 165                 self |                    ",
+      "                             |   166             self._so |                    ",
+      "                             |   167             self._so |                    ",
+      "                             |   168             server = |                    ",
+      "                             +----------------------------+                    ",
+      "                             ConnectionResetError:                             ",
+      "                             [WinError 10054]                                  ",
+      "                             Զ������ǿ�ȹر���һ�����е���                    ",
+      "                             �ӡ�                                              ",
+      "[10/30/26 16:04:48] INFO     Terminating session:        streamable_http.py:855",
+      "                             a85bbe35efa640548fbbe98dde6                       ",
+      "                             5f470                                             ",
+      "                    INFO     Created new         streamable_http_manager.py:325",
+      "                             transport with                                    ",
+      "                             session ID:                                       ",
+      "                             77394b1fc96c406a99e                               ",
+      "                             6bb0140ef84d0                                     ",
+      "                    INFO     Terminating session:        streamable_http.py:855",
+      "                             72e414cd6c594f9db5cb44548f6                       ",
+      "                             37229                                             ",
+      "                    INFO     Terminating session:        streamable_http.py:855",
+      "                             77394b1fc96c406a99e6bb0140e                       ",
+      "                             f84d0                                             "
+    ],
+    "stderr_connection_reset_count": 1
+  },
+  "experiment": {
+    "url": "http://127.0.0.1:8765/mcp",
+    "checks": [
+      {
+        "name": "两个客户端均 initialize 成功",
+        "ok": true,
+        "detail": "2025-11-25"
+      },
+      {
+        "name": "两个客户端 session id 不同",
+        "ok": true,
+        "detail": {
+          "A": "a85bbe35efa640548fbbe98dde65f470",
+          "B": "72e414cd6c594f9db5cb44548f637229"
+        }
+      },
+      {
+        "name": "并发 echo 结果正确",
+        "ok": true,
+        "detail": [
+          {
+            "label": "A",
+            "expected": "hello-A",
+            "result": {
+              "is_error": false,
+              "text": "hello-A",
+              "structured_content": {
+                "result": "hello-A"
+              }
+            }
+          },
+          {
+            "label": "B",
+            "expected": "hello-B",
+            "result": {
+              "is_error": false,
+              "text": "hello-B",
+              "structured_content": {
+                "result": "hello-B"
+              }
+            }
+          },
+          {
+            "label": "A-reconnect",
+            "expected": "reconnect-A",
+            "result": {
+              "is_error": false,
+              "text": "reconnect-A",
+              "structured_content": {
+                "result": "reconnect-A"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "两个客户端并发各调用 counter 两次均成功",
+        "ok": true,
+        "detail": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "并发爆发 10 次 counter 无异常",
+        "ok": true,
+        "detail": [
+          5,
+          7,
+          9,
+          11,
+          14,
+          6,
+          8,
+          10,
+          12,
+          13
+        ]
+      },
+      {
+        "name": "并发爆发 10 次 counter 返回值互不重复",
+        "ok": true,
+        "detail": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ]
+      },
+      {
+        "name": "客户端 A 已断开（发送 DELETE 终止会话）",
+        "ok": true,
+        "detail": {
+          "A_session": "a85bbe35efa640548fbbe98dde65f470"
+        }
+      },
+      {
+        "name": "A 断开后 B 仍可继续调用",
+        "ok": true,
+        "detail": {
+          "label": "B-after-A-close",
+          "value": 15,
+          "is_error": false,
+          "structured_content": {
+            "result": 15
+          }
+        }
+      },
+      {
+        "name": "A 断开后重连成功且获得新 session id",
+        "ok": true,
+        "detail": {
+          "old_A": "a85bbe35efa640548fbbe98dde65f470",
+          "B": "72e414cd6c594f9db5cb44548f637229",
+          "new_A": "77394b1fc96c406a99e6bb0140ef84d0"
+        }
+      },
+      {
+        "name": "重连后可继续调用 echo/counter",
+        "ok": true,
+        "detail": {
+          "echo": {
+            "is_error": false,
+            "text": "reconnect-A",
+            "structured_content": {
+              "result": "reconnect-A"
+            }
+          },
+          "counter": {
+            "label": "A-reconnect",
+            "value": 16,
+            "is_error": false,
+            "structured_content": {
+              "result": 16
+            }
+          }
+        }
+      },
+      {
+        "name": "counter 跨客户端/跨会话共享且连续递增",
+        "ok": true,
+        "detail": {
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9,
+            11,
+            14,
+            6,
+            8,
+            10,
+            12,
+            13,
+            15,
+            16
+          ],
+          "expected": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ]
+        }
+      },
+      {
+        "name": "客户端上下文退出时发送 DELETE 终止会话",
+        "ok": true,
+        "detail": {
+          "requests": [
+            {
+              "phase": "request",
+              "client": "A",
+              "at": "2026-10-30T08:04:48.347860+00:00",
+              "method": "DELETE",
+              "url": "http://127.0.0.1:8765/mcp",
+              "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+              "mcp_protocol_version": "2025-11-25"
+            },
+            {
+              "phase": "request",
+              "client": "B",
+              "at": "2026-10-30T08:04:48.396842+00:00",
+              "method": "DELETE",
+              "url": "http://127.0.0.1:8765/mcp",
+              "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+              "mcp_protocol_version": "2025-11-25"
+            },
+            {
+              "phase": "request",
+              "client": "A-reconnect",
+              "at": "2026-10-30T08:04:48.401841+00:00",
+              "method": "DELETE",
+              "url": "http://127.0.0.1:8765/mcp",
+              "mcp_session_id": "77394b1fc96c406a99e6bb0140ef84d0",
+              "mcp_protocol_version": "2025-11-25"
+            }
+          ],
+          "responses": [
+            {
+              "phase": "response",
+              "client": "A",
+              "at": "2026-10-30T08:04:48.352860+00:00",
+              "method": "DELETE",
+              "url": "http://127.0.0.1:8765/mcp",
+              "status": 200,
+              "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+              "content_type": "application/json"
+            },
+            {
+              "phase": "response",
+              "client": "B",
+              "at": "2026-10-30T08:04:48.400841+00:00",
+              "method": "DELETE",
+              "url": "http://127.0.0.1:8765/mcp",
+              "status": 200,
+              "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+              "content_type": "application/json"
+            },
+            {
+              "phase": "response",
+              "client": "A-reconnect",
+              "at": "2026-10-30T08:04:48.406840+00:00",
+              "method": "DELETE",
+              "url": "http://127.0.0.1:8765/mcp",
+              "status": 200,
+              "mcp_session_id": "77394b1fc96c406a99e6bb0140ef84d0",
+              "content_type": "application/json"
+            }
+          ]
+        }
+      },
+      {
+        "name": "session id 通过 mcp-session-id 请求/响应头传递，未出现在 URL",
+        "ok": true,
+        "detail": {
+          "observed_session_ids": [
+            "72e414cd6c594f9db5cb44548f637229",
+            "77394b1fc96c406a99e6bb0140ef84d0",
+            "a85bbe35efa640548fbbe98dde65f470"
+          ],
+          "url_contains_session": false
+        }
+      }
+    ],
+    "session_ids": {
+      "A": "a85bbe35efa640548fbbe98dde65f470",
+      "B": "72e414cd6c594f9db5cb44548f637229",
+      "A-reconnect": "77394b1fc96c406a99e6bb0140ef84d0"
+    },
+    "init": {
+      "A": {
+        "protocol_version": "2025-11-25",
+        "server_info": {
+          "name": "spike-streamable-http",
+          "title": null,
+          "version": "1.0.0",
+          "description": null,
+          "website_url": null,
+          "icons": null
+        },
+        "capabilities": {
+          "experimental": null,
+          "logging": null,
+          "prompts": {
+            "list_changed": false
+          },
+          "resources": {
+            "subscribe": false,
+            "list_changed": false
+          },
+          "tools": {
+            "list_changed": false
+          },
+          "completions": null,
+          "extensions": null,
+          "tasks": null
+        }
+      },
+      "B": {
+        "protocol_version": "2025-11-25",
+        "server_info": {
+          "name": "spike-streamable-http",
+          "title": null,
+          "version": "1.0.0",
+          "description": null,
+          "website_url": null,
+          "icons": null
+        },
+        "capabilities": {
+          "experimental": null,
+          "logging": null,
+          "prompts": {
+            "list_changed": false
+          },
+          "resources": {
+            "subscribe": false,
+            "list_changed": false
+          },
+          "tools": {
+            "list_changed": false
+          },
+          "completions": null,
+          "extensions": null,
+          "tasks": null
+        }
+      },
+      "A-reconnect": {
+        "protocol_version": "2025-11-25",
+        "server_info": {
+          "name": "spike-streamable-http",
+          "title": null,
+          "version": "1.0.0",
+          "description": null,
+          "website_url": null,
+          "icons": null
+        },
+        "capabilities": {
+          "experimental": null,
+          "logging": null,
+          "prompts": {
+            "list_changed": false
+          },
+          "resources": {
+            "subscribe": false,
+            "list_changed": false
+          },
+          "tools": {
+            "list_changed": false
+          },
+          "completions": null,
+          "extensions": null,
+          "tasks": null
+        }
+      }
+    },
+    "echo": [
+      {
+        "label": "A",
+        "expected": "hello-A",
+        "result": {
+          "is_error": false,
+          "text": "hello-A",
+          "structured_content": {
+            "result": "hello-A"
+          }
+        }
+      },
+      {
+        "label": "B",
+        "expected": "hello-B",
+        "result": {
+          "is_error": false,
+          "text": "hello-B",
+          "structured_content": {
+            "result": "hello-B"
+          }
+        }
+      },
+      {
+        "label": "A-reconnect",
+        "expected": "reconnect-A",
+        "result": {
+          "is_error": false,
+          "text": "reconnect-A",
+          "structured_content": {
+            "result": "reconnect-A"
+          }
+        }
+      }
+    ],
+    "counter_events": [
+      {
+        "label": "A",
+        "value": 1,
+        "is_error": false,
+        "structured_content": {
+          "result": 1
+        }
+      },
+      {
+        "label": "B",
+        "value": 2,
+        "is_error": false,
+        "structured_content": {
+          "result": 2
+        }
+      },
+      {
+        "label": "A",
+        "value": 3,
+        "is_error": false,
+        "structured_content": {
+          "result": 3
+        }
+      },
+      {
+        "label": "B",
+        "value": 4,
+        "is_error": false,
+        "structured_content": {
+          "result": 4
+        }
+      },
+      {
+        "label": "A",
+        "value": 5,
+        "is_error": false,
+        "structured_content": {
+          "result": 5
+        }
+      },
+      {
+        "label": "A",
+        "value": 7,
+        "is_error": false,
+        "structured_content": {
+          "result": 7
+        }
+      },
+      {
+        "label": "A",
+        "value": 9,
+        "is_error": false,
+        "structured_content": {
+          "result": 9
+        }
+      },
+      {
+        "label": "A",
+        "value": 11,
+        "is_error": false,
+        "structured_content": {
+          "result": 11
+        }
+      },
+      {
+        "label": "A",
+        "value": 14,
+        "is_error": false,
+        "structured_content": {
+          "result": 14
+        }
+      },
+      {
+        "label": "B",
+        "value": 6,
+        "is_error": false,
+        "structured_content": {
+          "result": 6
+        }
+      },
+      {
+        "label": "B",
+        "value": 8,
+        "is_error": false,
+        "structured_content": {
+          "result": 8
+        }
+      },
+      {
+        "label": "B",
+        "value": 10,
+        "is_error": false,
+        "structured_content": {
+          "result": 10
+        }
+      },
+      {
+        "label": "B",
+        "value": 12,
+        "is_error": false,
+        "structured_content": {
+          "result": 12
+        }
+      },
+      {
+        "label": "B",
+        "value": 13,
+        "is_error": false,
+        "structured_content": {
+          "result": 13
+        }
+      },
+      {
+        "label": "B-after-A-close",
+        "value": 15,
+        "is_error": false,
+        "structured_content": {
+          "result": 15
+        }
+      },
+      {
+        "label": "A-reconnect",
+        "value": 16,
+        "is_error": false,
+        "structured_content": {
+          "result": 16
+        }
+      }
+    ],
+    "counter_values": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      9,
+      11,
+      14,
+      6,
+      8,
+      10,
+      12,
+      13,
+      15,
+      16
+    ],
+    "http_records": [
+      {
+        "phase": "request",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp"
+      },
+      {
+        "phase": "response",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "request",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "request",
+        "client": "A",
+        "method": "GET",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "request",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp"
+      },
+      {
+        "phase": "response",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 202,
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "content_type": "application/json"
+      },
+      {
+        "phase": "response",
+        "client": "A",
+        "method": "GET",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "response",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "request",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "request",
+        "client": "B",
+        "method": "GET",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "request",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "response",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 202,
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "content_type": "application/json"
+      },
+      {
+        "phase": "request",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "response",
+        "client": "B",
+        "method": "GET",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "response",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "response",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "request",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "response",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "request",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "response",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "request",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "request",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "response",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "response",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "request",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "request",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "response",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "response",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "request",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "request",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "request",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "request",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "request",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "request",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "response",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "request",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "request",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "response",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "request",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "request",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "response",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "response",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "response",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "response",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "response",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "response",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "response",
+        "client": "A",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "response",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "request",
+        "client": "A",
+        "method": "DELETE",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "response",
+        "client": "A",
+        "method": "DELETE",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+        "content_type": "application/json"
+      },
+      {
+        "phase": "request",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "response",
+        "client": "B",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "request",
+        "client": "A-reconnect",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp"
+      },
+      {
+        "phase": "response",
+        "client": "A-reconnect",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "77394b1fc96c406a99e6bb0140ef84d0",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "request",
+        "client": "A-reconnect",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "77394b1fc96c406a99e6bb0140ef84d0",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "request",
+        "client": "A-reconnect",
+        "method": "GET",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "77394b1fc96c406a99e6bb0140ef84d0",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "response",
+        "client": "A-reconnect",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 202,
+        "mcp_session_id": "77394b1fc96c406a99e6bb0140ef84d0",
+        "content_type": "application/json"
+      },
+      {
+        "phase": "request",
+        "client": "A-reconnect",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "77394b1fc96c406a99e6bb0140ef84d0",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "response",
+        "client": "A-reconnect",
+        "method": "GET",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "77394b1fc96c406a99e6bb0140ef84d0",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "response",
+        "client": "A-reconnect",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "77394b1fc96c406a99e6bb0140ef84d0",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "request",
+        "client": "A-reconnect",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "77394b1fc96c406a99e6bb0140ef84d0",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "response",
+        "client": "A-reconnect",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "77394b1fc96c406a99e6bb0140ef84d0",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "request",
+        "client": "A-reconnect",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "77394b1fc96c406a99e6bb0140ef84d0",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "response",
+        "client": "A-reconnect",
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "77394b1fc96c406a99e6bb0140ef84d0",
+        "content_type": "text/event-stream"
+      },
+      {
+        "phase": "request",
+        "client": "B",
+        "method": "DELETE",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "response",
+        "client": "B",
+        "method": "DELETE",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+        "content_type": "application/json"
+      },
+      {
+        "phase": "request",
+        "client": "A-reconnect",
+        "method": "DELETE",
+        "url": "http://127.0.0.1:8765/mcp",
+        "mcp_session_id": "77394b1fc96c406a99e6bb0140ef84d0",
+        "mcp_protocol_version": "2025-11-25"
+      },
+      {
+        "phase": "response",
+        "client": "A-reconnect",
+        "method": "DELETE",
+        "url": "http://127.0.0.1:8765/mcp",
+        "status": 200,
+        "mcp_session_id": "77394b1fc96c406a99e6bb0140ef84d0",
+        "content_type": "application/json"
+      }
+    ],
+    "delete": {
+      "requests": [
+        {
+          "phase": "request",
+          "client": "A",
+          "at": "2026-10-30T08:04:48.347860+00:00",
+          "method": "DELETE",
+          "url": "http://127.0.0.1:8765/mcp",
+          "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+          "mcp_protocol_version": "2025-11-25"
+        },
+        {
+          "phase": "request",
+          "client": "B",
+          "at": "2026-10-30T08:04:48.396842+00:00",
+          "method": "DELETE",
+          "url": "http://127.0.0.1:8765/mcp",
+          "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+          "mcp_protocol_version": "2025-11-25"
+        },
+        {
+          "phase": "request",
+          "client": "A-reconnect",
+          "at": "2026-10-30T08:04:48.401841+00:00",
+          "method": "DELETE",
+          "url": "http://127.0.0.1:8765/mcp",
+          "mcp_session_id": "77394b1fc96c406a99e6bb0140ef84d0",
+          "mcp_protocol_version": "2025-11-25"
+        }
+      ],
+      "responses": [
+        {
+          "phase": "response",
+          "client": "A",
+          "at": "2026-10-30T08:04:48.352860+00:00",
+          "method": "DELETE",
+          "url": "http://127.0.0.1:8765/mcp",
+          "status": 200,
+          "mcp_session_id": "a85bbe35efa640548fbbe98dde65f470",
+          "content_type": "application/json"
+        },
+        {
+          "phase": "response",
+          "client": "B",
+          "at": "2026-10-30T08:04:48.400841+00:00",
+          "method": "DELETE",
+          "url": "http://127.0.0.1:8765/mcp",
+          "status": 200,
+          "mcp_session_id": "72e414cd6c594f9db5cb44548f637229",
+          "content_type": "application/json"
+        },
+        {
+          "phase": "response",
+          "client": "A-reconnect",
+          "at": "2026-10-30T08:04:48.406840+00:00",
+          "method": "DELETE",
+          "url": "http://127.0.0.1:8765/mcp",
+          "status": 200,
+          "mcp_session_id": "77394b1fc96c406a99e6bb0140ef84d0",
+          "content_type": "application/json"
+        }
+      ]
+    }
+  },
+  "anomalies": [
+    "server stderr 记录 1 次 ConnectionResetError (WinError 10054)，出现在会话建立后的连接关闭阶段；所有 RPC 调用均成功，判定为 Windows Proactor 事件循环的关闭噪声（uvicorn/asyncio 已知现象），不影响功能。"
+  ],
+  "notes": [
+    "同一 asyncio 任务中串行关闭多个 streamable_http_client 上下文时，第二个上下文关闭阶段（发送 DELETE）会抛 CancelledError；本次改为每个连接独立 asyncio 任务承载后稳定。",
+    "协商协议版本为 2025-11-25；服务端默认 json_response=False，initialize 响应以 text/event-stream 返回。"
+  ]
+}

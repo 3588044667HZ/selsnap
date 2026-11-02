@@ -1,0 +1,101 @@
+{
+  "chrome": "C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Bin\\chrome.exe",
+  "edge": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "runs": [
+    {
+      "label": "standard-chrome109",
+      "sites": {},
+      "errors": [
+        "launch: WebDriverException: Message: unknown error: cannot find Chrome binary\nStacktrace:\nBacktrace:\n\t(No symbol) [0x005F6643]\n\t(No symbol) [0x0058BE21]\n\t(No symbol) [0x0048DA9D]\n\t(No symbol) [0x004ACC30]\n\t(No symbol) [0x004AA899]\n\t(No symbol) [0x004E6917]\n\t(No symbol) [0x004E655C]\n\t(No symbol) [0x004DFB76]\n\t(No symbol) [0x004B49C1]\n\t(No symbol) [0x004B5E5D]\n\tGetHandleVerifier [0x0086A142+2497106]\n\tGetHandleVerifier [0x008985D3+2686691]\n\tGetHandleVerifier [0x0089BB9C+2700460]\n\tGetHandleVerifier [0x006A3B10+635936]\n\t(No symbol) [0x00594A1F]\n\t(No symbol) [0x0059A418]\n\t(No symbol) [0x0059A505]\n\t(No symbol) [0x005A508B]\n\tBaseThreadInitThunk [0x779CFCC9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77E2843E+286]\n\tRtlGetAppContainerNamedObjectPath [0x77E2840E+238]\n"
+      ]
+    },
+    {
+      "label": "cdp-chrome109",
+      "sites": {},
+      "errors": [
+        "launch: FileNotFoundError: Could not find a valid chrome browser binary. Please make sure Chrome is installed. Or use the keyword argument: 'browser_executable_path=/path/to/your/browser'."
+      ]
+    },
+    {
+      "label": "standard-edge156",
+      "sites": {
+        "https://bot.sannysoft.com/": {
+          "load_s": 54.02,
+          "body": "Intoli.com tests + additions\nTest Name\tResult\nUser Agent\n(Old)\n\tMozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0\nWebDriver\n(New)\n\tmissing (passed)\nWebDriver Advanced\tpassed\nChrome\n(New)\n\tpresent (passed)\nPermissions\n(New)\n\tprompt\nPlugins Length\n(Old)\n\t5\nPlugins is of type PluginArray\tpassed\nLanguages\n(Old)\n\tzh-CN,en,en-GB,en-US\nWebGL Vendor\tCanvas has no webgl context\nWebGL Renderer\tCanvas has no webgl context\nBroken Image Dimensions\t16x16\nFingerprint Scanner tests\nSome details\nnavigator.cookieEnabled\ttrue\nnavigator.doNotTrack\tnull\nnavigator.msDoNotTrack\tundefined\nnavigator.sendBeacon\t\nnavigator.cookieEnabled\ttrue\nnavigator.userAgent\tMozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0\nnavigator.appName\tNetscape\nnavigator.vendor\tGoogle Inc.\nnavigator.appCodeName\tMozilla\nnavigator.getUserMedia\t\nnavigator.sayswho\tundefined\nnavigator.javaEnabled\tfalse\nnavigator.plugins\t{\"0\":{\"0\":{},\"1\":{}},\"1\":{\"0\":{},\"1\":{}},\"2\":{\"0\":{},\"1\":{}},\"3\":{\"0\":{},\"1\":{}},\"4\":{\"0\":{},\"1\":{}}}\nscreen.width\t800\nscreen.height\t600\nscreen.colorDepth\t24\nnavigator.language\tzh-CN\nnavigator.loadPurpose\tundefined\nnavigator.platform\tWin32\nnavigator.mediaDevices\tvideoinput: id =\naudiooutput: id =\n\nnavigator.getBattery details\tCharging: true\nLevel: 1\nCanvas1\t\nHash: 1118196126\n\nCanvas2\t\nHash: 1118196126\n\nCanvas3 (iframe sandbox)\t\nHash: 1118196126\n\nCanva",
+          "body_len": 1592,
+          "chrome_obj": true,
+          "failed": 4,
+          "html_len": 25898,
+          "passed": 7,
+          "plugins": 5,
+          "ready": "complete",
+          "title": "Antibot",
+          "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+          "url": "https://bot.sannysoft.com/",
+          "webdriver": false,
+          "ok": true
+        },
+        "https://browserscan.net/bot-detection": {
+          "load_s": 2.33,
+          "body": "blog\nAntidetect Browser\nUtilities\nEN\nSign In\nHome\n>\nBot Detection\nTest Results:\nRobot\nWebdriver\nUser-Agent\nCDP\nNavigator\nBrowser bot detection guide\n\nBrowserScan detects automated activities on scripts or browsers. It analyzes various browser properties to determine whether the browser environment is controlled by a robot. Various human-machine verification products such as Cloudflare Turnstile and Google reCAPTCHA include this aspect of detection, which is usually divided into three categories:Automation Tool Comparison\n\nNormal bots - usually bots belonging to well-known search engines (Google, Bing, Baidu). It crawls websites to create a searchable index of content. A good bot can also be a monitoring or uptime checking tool.\nMalicious bots - Usually automated tools like Selenium, Puppeteer, Playwright or anything that pretends to be a good search bot. It can take over accounts, submit spam, steal passwords, scrape data, waste resources, and more.Discord bots.\nNo bots detected - the visitor could be a human using a regular browser.\nAd\nIdentification and bot detection\n\nThe combination of fingerprinting and bot detection gives you a powerful tool to protect against online fraud and produces the best results when used together.\n\nWebDriver\nNormal\nWebDriver Advance\nNormal\nSelenium\nRobot\nNightmareJS\nNormal\nPhantomJS\nNormal\nAwesomium\nNormal\nCef\nNormal\nCefSharp\nNormal\nCoaches\nNormal\nFMiner\nNormal\nBorn\nNormal\nPhantomas\nNormal\nRhino\nNormal\nWebdriverio\nNormal\nHeadless Chrome\nRobot\nDis",
+          "body_len": 8863,
+          "chrome_obj": true,
+          "failed": 0,
+          "html_len": 1106579,
+          "passed": 0,
+          "plugins": 5,
+          "ready": "complete",
+          "title": "BrowserScan - Robot Detection/WebDriver | BrowserScan",
+          "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+          "url": "https://www.browserscan.net/bot-detection",
+          "webdriver": false,
+          "ok": true
+        },
+        "https://seleniumbase.io/demo_page": {
+          "load_s": 1.06,
+          "body": "Demo Page\n\t\nSeleniumBase\n\t\nHover Dropdown\n\t\nAutomation Practice\n\nText Input Field:\t\tTextarea:\t\nPre-Filled Text Field:\t\tButton:\tClick Me (Green)\nPlaceholder Text Field:\t\tRead-Only Text Field:\t\nHTML SVG with rect:\t\t\n\nParagraph with Text:\n\n\t\n\nThis Text is Green\n\n\nInput Slider Control:\t\tProgress Bar: (50%)\t\nSelect Dropdown:\t\nSet to 25%\nSet to 50%\nSet to 75%\nSet to 100%\n\tHTML Meter: (25%)\t\n\nImage in iFrame:\n\t   \n\tRadioButton 1:\tRadioButton 2:\nCheckBox: \tCheckBoxes:   \tPre-Check Box: \tCheckBox in iFrame:  \n\nURL Link:\tseleniumbase.com\tLink with Text:\tSeleniumBase on GitHub\nSeleniumBase Docs:\tseleniumbase.io\tThe Demo Page:\tSeleniumBase Demo Page",
+          "body_len": 645,
+          "chrome_obj": true,
+          "failed": 0,
+          "html_len": 26002,
+          "passed": 0,
+          "plugins": 5,
+          "ready": "complete",
+          "title": "Web Testing Page",
+          "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+          "url": "https://seleniumbase.io/demo_page",
+          "webdriver": false,
+          "ok": true
+        }
+      },
+      "errors": [],
+      "launch_s": 10.04
+    },
+    {
+      "label": "cdp-edge156",
+      "sites": {
+        "https://bot.sannysoft.com/": {
+          "load_s": 30.36,
+          "ok": false,
+          "error": "ProtocolException: \nexceptionId: 1\ntext: Uncaught\nlineNumber: 0\ncolumnNumber: 0\nscriptId: 3\nexception: \n\ttype: object\n\tsubtype: error\n\tclassName: SyntaxError\n\tdescription: SyntaxError: Illegal return statement\n\tobjectId: 9213628218652973040.2.2\n\n"
+        },
+        "https://browserscan.net/bot-detection": {
+          "load_s": 2.0,
+          "ok": false,
+          "error": "ProtocolException: \nexceptionId: 1\ntext: Uncaught\nlineNumber: 0\ncolumnNumber: 0\nscriptId: 18\nexception: \n\ttype: object\n\tsubtype: error\n\tclassName: SyntaxError\n\tdescription: SyntaxError: Illegal return statement\n\tobjectId: -2566650758282483901.1.2\n\n"
+        },
+        "https://seleniumbase.io/demo_page": {
+          "load_s": 1.86,
+          "ok": false,
+          "error": "ProtocolException: \nexceptionId: 1\ntext: Uncaught\nlineNumber: 0\ncolumnNumber: 0\nscriptId: 16\nexception: \n\ttype: object\n\tsubtype: error\n\tclassName: SyntaxError\n\tdescription: SyntaxError: Illegal return statement\n\tobjectId: -1386392430019347858.1.2\n\n"
+        }
+      },
+      "errors": [
+        "ProtocolException: \nexceptionId: 1\ntext: Uncaught\nlineNumber: 0\ncolumnNumber: 0\nscriptId: 3\nexception: \n\ttype: object\n\tsubtype: error\n\tclassName: SyntaxError\n\tdescription: SyntaxError: Illegal return statement\n\tobjectId: 9213628218652973040.2.2\n\n",
+        "ProtocolException: \nexceptionId: 1\ntext: Uncaught\nlineNumber: 0\ncolumnNumber: 0\nscriptId: 18\nexception: \n\ttype: object\n\tsubtype: error\n\tclassName: SyntaxError\n\tdescription: SyntaxError: Illegal return statement\n\tobjectId: -2566650758282483901.1.2\n\n",
+        "ProtocolException: \nexceptionId: 1\ntext: Uncaught\nlineNumber: 0\ncolumnNumber: 0\nscriptId: 16\nexception: \n\ttype: object\n\tsubtype: error\n\tclassName: SyntaxError\n\tdescription: SyntaxError: Illegal return statement\n\tobjectId: -1386392430019347858.1.2\n\n"
+      ],
+      "launch_s": 1.91
+    }
+  ]
+}

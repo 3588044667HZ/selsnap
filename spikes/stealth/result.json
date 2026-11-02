@@ -1,0 +1,395 @@
+{
+  "generated_at": "2026-10-30 16:22:10",
+  "env": {
+    "python": "3.11.9",
+    "seleniumbase": "4.56.5",
+    "generated_by": "spike.py",
+    "chrome_path": "C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Bin\\chrome.exe",
+    "chrome_version": "109.0.5414.120",
+    "chromedriver_version": "109.0.5414.74",
+    "uc_driver_version": "109.0.5414.74",
+    "chrome_candidates": [
+      {
+        "path": "C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Bin\\chrome.exe",
+        "version": "109.0.5414.120"
+      }
+    ]
+  },
+  "modes": {
+    "standard": {
+      "mode": "standard",
+      "status": "ok",
+      "browser": {
+        "kind": "selenium",
+        "driver": "chromedriver",
+        "headless": true,
+        "fallback_headed": false,
+        "browser_version": "109.0.5414.120",
+        "chromedriver_version": "109.0.5414.74 (e7c5703604daa9cc128ccf5a5d3e993513758913-refs/branch-heads/5414@{#1172})"
+      },
+      "launch_error": null,
+      "sannysoft": {
+        "url": "https://bot.sannysoft.com/",
+        "loaded": true,
+        "load_error": null,
+        "load_elapsed_s": 20.75,
+        "wait_s": 3,
+        "final_url": "https://bot.sannysoft.com/",
+        "title": "Antibot",
+        "elapsed_s": 23.75,
+        "collect_error": null,
+        "final_url_error": null,
+        "title_error": null,
+        "body_excerpt": "Intoli.com tests + additions\nTest Name\tResult\nUser Agent\n(Old)\n\tMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/109.0.5414.120 Safari/537.36\nWebDriver\n(New)\n\tpresent (failed)\nWebDriver Advanced\tpassed\nChrome\n(New)\n\tmissing (failed)\nPermissions\n(New)\n\tprompt",
+        "body_len": 1452,
+        "failed": 8,
+        "passed": 3,
+        "plugins": 0,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/109.0.5414.120 Safari/537.36",
+        "webdriver": true,
+        "window_chrome": false
+      },
+      "browserscan": {
+        "url": "https://www.browserscan.net/bot-detection",
+        "loaded": true,
+        "load_error": null,
+        "load_elapsed_s": 1.83,
+        "wait_s": 7,
+        "final_url": "https://www.browserscan.net/bot-detection",
+        "title": "BrowserScan - Robot Detection/WebDriver | BrowserScan",
+        "elapsed_s": 8.83,
+        "collect_error": null,
+        "final_url_error": null,
+        "title_error": null,
+        "body_excerpt": "blog\nAntidetect Browser\nUtilities\nEN\nSign In\nHome\n>\nBot Detection\nTest Results:\nRobot\nWebdriver\nUser-Agent\nCDP\nNavigator\nBrowser bot detection guide\n\nBrowserScan detects automated activities on scripts or browsers. It analyzes various browser properties to determine whether the browser environment is controlled by a robot. Various human-machine verification products such as Cloudflare Turnstile and Google reCAPTCHA include this aspect of detection, which is usually divided into three categories:Automation Tool Comparison\n\nNormal bots - usually bots belonging to well-known search engines (Google, Bing, Baidu). It crawls websites to create a searchable index of content. A good bot can also be a monitoring or uptime checking tool.\nMalicious bots - Usually automated tools like Selenium, Puppeteer, Playwright or anything that pretends to be a good search bot. It can take over accounts, submit spam, steal passwords, scrape data, waste resources, and more.Discord bots.\nNo bots detected - the visitor could be a human using a regular browser.\nAd\nIdentification and bot detection\n\nThe combination of fingerprinting and bot detection gives you a powerful tool to protect against online fraud and produces the best results when used together.\n\nWebDriver\nRobot\nWebDriver Advance\nNormal\nSelenium\nRobot\nNightmareJS\nNormal\nPhantomJS\nNormal\nAwesomium\nNormal\nCef\nNormal\nCefSharp\nNormal\nCoaches\nNormal\nFMiner\nNormal\nBorn\nNormal\nPhantomas\nNormal\nRhino\nNormal\nWebdriverio\nNormal\nHeadless Chrome\nRobot\nDiscover more\nAutomated Browser Testing\nSource Robotics\nRobot Detection System\nHuman Verification Tools\nBuild Robots\nrobots\nrobot\nBrowser Scan Service\nAntidetect Browser Software\nprogramming interface\nChrome DevTools Protocol Detection\n\nDetectable use of developer tools to simulate browsers or control them via related developer protocols.\n\nCDP\nRobot\nDev Tool\nNormal\nNative Navigator\n\nDetect whether the Navigator is deceptive. Some browser plug-ins or robots will modify key attributes to achieve decep",
+        "detail_snippets": {
+          "CDP": "CDP Navigator Browser bot detection guide BrowserScan detects automat",
+          "Headless Chrome": "Headless Chrome Robot Discover more Automated Browser Testing Source R",
+          "Navigator": "Navigator Browser bot detection guide BrowserScan detects automated a",
+          "WebDriver": "WebDriver Robot WebDriver Advance Normal Selenium Robot NightmareJS No"
+        },
+        "keyword_flags": {
+          "Bot": true,
+          "Headless": true,
+          "Human": true,
+          "Normal": true,
+          "Robot": true,
+          "WebDriver": true
+        },
+        "summary": "Test Results: | Robot | Webdriver | User-Agent | CDP | Navigator | Browser bot detection guide | BrowserScan detects automated activities on scripts or browsers. It analyzes various browser properties to determine whether the browser environment is cont"
+      },
+      "challenge": {
+        "url": "https://seleniumbase.io/demo_page",
+        "loaded": true,
+        "load_error": null,
+        "load_elapsed_s": 0.64,
+        "wait_s": 2,
+        "final_url": "https://seleniumbase.io/demo_page",
+        "title": "Web Testing Page",
+        "elapsed_s": 2.64,
+        "collect_error": null,
+        "final_url_error": null,
+        "title_error": null,
+        "false_positive": false,
+        "matches": {
+          "Attention Required": {
+            "any": false,
+            "html": false,
+            "text": false,
+            "title": false
+          },
+          "Just a moment": {
+            "any": false,
+            "html": false,
+            "text": false,
+            "title": false
+          },
+          "Verify you are human": {
+            "any": false,
+            "html": false,
+            "text": false,
+            "title": false
+          },
+          "cf-chl": {
+            "any": false,
+            "html": false,
+            "text": false,
+            "title": false
+          },
+          "challenge-platform": {
+            "any": false,
+            "html": false,
+            "text": false,
+            "title": false
+          }
+        },
+        "text_excerpt": "Demo Page\n\t\nSeleniumBase\n\t\nHover Dropdown\n\t\nAutomation Practice\n\nText Input Field:\t\tTextarea:\t\nPre-Filled Text Field:\t\tButton:\tClick Me (Green)\nPlaceholder Text Field:\t\tRead-Only Text Field:\t\nHTML SVG with rect:\t\t\n\nParagraph with Text:\n\n\t\n\nThis Text is Green\n\n\nInput Slider Control:\t\tProgress Bar: (50%)\t\nSelect Dropdown:\t\nSet to 25%\nSet to 50%\nSet to 75%\nSet to 100%\n\tHTML Meter: (25%)\t\n\nImage in iFrame:\n\t   \n\tRadioButton 1:\tRadioButton 2:\nCheckBox: \tCheckBoxes:   \tPre-Check Box: \tCheckBox in iFra"
+      },
+      "turnstile": {
+        "attempted": false,
+        "url": "https://seleniumbase.io/apps/turnstile",
+        "reason": "standard 模式原生 Driver 未暴露 solve_captcha()（UC 需先切换 CDP 模式）；按只试一次约束不在本模式尝试"
+      },
+      "close": {
+        "quit_ok": true,
+        "killed_pids": [],
+        "error": null
+      }
+    },
+    "uc": {
+      "mode": "uc",
+      "status": "ok",
+      "browser": {
+        "kind": "selenium",
+        "driver": "uc_driver",
+        "headless": true,
+        "fallback_headed": false,
+        "first_headless_error": null,
+        "browser_version": "109.0.5414.120",
+        "chromedriver_version": "109.0.5414.74 (e7c5703604daa9cc128ccf5a5d3e993513758913-refs/branch-heads/5414@{#1172})"
+      },
+      "launch_error": null,
+      "sannysoft": {
+        "url": "https://bot.sannysoft.com/",
+        "loaded": true,
+        "load_error": null,
+        "load_elapsed_s": 17.7,
+        "wait_s": 3,
+        "final_url": "https://bot.sannysoft.com/",
+        "title": "Antibot",
+        "elapsed_s": 20.7,
+        "collect_error": null,
+        "final_url_error": null,
+        "title_error": null,
+        "body_excerpt": "Intoli.com tests + additions\nTest Name\tResult\nUser Agent\n(Old)\n\tMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36\nWebDriver\n(New)\n\tmissing (passed)\nWebDriver Advanced\tpassed\nChrome\n(New)\n\tpresent (passed)\nPermissions\n(New)\n\tdenied\nPlugins Leng",
+        "body_len": 14271,
+        "failed": 0,
+        "passed": 31,
+        "plugins": 5,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+        "webdriver": false,
+        "window_chrome": true
+      },
+      "browserscan": {
+        "url": "https://www.browserscan.net/bot-detection",
+        "loaded": true,
+        "load_error": null,
+        "load_elapsed_s": 3.56,
+        "wait_s": 7,
+        "final_url": "https://www.browserscan.net/bot-detection",
+        "title": "BrowserScan - Robot Detection/WebDriver | BrowserScan",
+        "elapsed_s": 10.56,
+        "collect_error": null,
+        "final_url_error": null,
+        "title_error": null,
+        "body_excerpt": "blog\nAntidetect Browser\nUtilities\nEN\nSign In\nHome\n>\nBot Detection\nTest Results:\nRobot\nWebdriver\nUser-Agent\nCDP\nNavigator\nBrowser bot detection guide\n\nBrowserScan detects automated activities on scripts or browsers. It analyzes various browser properties to determine whether the browser environment is controlled by a robot. Various human-machine verification products such as Cloudflare Turnstile and Google reCAPTCHA include this aspect of detection, which is usually divided into three categories:Bot Detection Service\n\nNormal bots - usually bots belonging to well-known search engines (Google, Bing, Baidu). It crawls websites to create a searchable index of content. A good bot can also be a monitoring or uptime checking tool.\nMalicious bots - Usually automated tools like Selenium, Puppeteer, Playwright or anything that pretends to be a good search bot. It can take over accounts, submit spam, steal passwords, scrape data, waste resources, and more.Discord bots.\nNo bots detected - the visitor could be a human using a regular browser.\nAd\nIdentification and bot detection\n\nThe combination of fingerprinting and bot detection gives you a powerful tool to protect against online fraud and produces the best results when used together.Compare Browsers\n\nWebDriver\nNormal\nWebDriver Advance\nNormal\nSelenium\nNormal\nNightmareJS\nNormal\nPhantomJS\nNormal\nAwesomium\nNormal\nCef\nNormal\nCefSharp\nNormal\nCoaches\nNormal\nFMiner\nNormal\nBorn\nNormal\nPhantomas\nNormal\nRhino\nNormal\nWebdriverio\nNormal\nHeadless Chrome\nNormal\nDiscover more\nBot Detection Service\nPlugin Detection Tool\nWebdriverIO Automation Guide\nHeadless Chrome Tutorial\nBot Prevention Software\nAutomation Tool Comparison\nSelenium Automation Course\nExplore Web Apps\nCompare Browsers\nChrome DevTools Protocol Detection\n\nDetectable use of developer tools to simulate browsers or control them via related developer protocols.Automation Tool Comparison\n\nCDP\nRobot\nDev Tool\nNormal\nNative Navigator\n\nDetect whether the Navigator is deceptive. Some browser",
+        "detail_snippets": {
+          "CDP": "CDP Navigator Browser bot detection guide BrowserScan detects automat",
+          "Headless Chrome": "Headless Chrome Normal Discover more Bot Detection Service Plugin Dete",
+          "Navigator": "Navigator Browser bot detection guide BrowserScan detects automated a",
+          "WebDriver": "WebDriver Normal WebDriver Advance Normal Selenium Normal NightmareJS "
+        },
+        "keyword_flags": {
+          "Bot": true,
+          "Headless": true,
+          "Human": true,
+          "Normal": true,
+          "Robot": true,
+          "WebDriver": true
+        },
+        "summary": "Test Results: | Robot | Webdriver | User-Agent | CDP | Navigator | Browser bot detection guide | BrowserScan detects automated activities on scripts or browsers. It analyzes various browser properties to determine whether the browser environment is cont"
+      },
+      "challenge": {
+        "url": "https://seleniumbase.io/demo_page",
+        "loaded": true,
+        "load_error": null,
+        "load_elapsed_s": 1.3,
+        "wait_s": 2,
+        "final_url": "https://seleniumbase.io/demo_page",
+        "title": "Web Testing Page",
+        "elapsed_s": 3.3,
+        "collect_error": null,
+        "final_url_error": null,
+        "title_error": null,
+        "false_positive": false,
+        "matches": {
+          "Attention Required": {
+            "any": false,
+            "html": false,
+            "text": false,
+            "title": false
+          },
+          "Just a moment": {
+            "any": false,
+            "html": false,
+            "text": false,
+            "title": false
+          },
+          "Verify you are human": {
+            "any": false,
+            "html": false,
+            "text": false,
+            "title": false
+          },
+          "cf-chl": {
+            "any": false,
+            "html": false,
+            "text": false,
+            "title": false
+          },
+          "challenge-platform": {
+            "any": false,
+            "html": false,
+            "text": false,
+            "title": false
+          }
+        },
+        "text_excerpt": "Demo Page\n\t\nSeleniumBase\n\t\nHover Dropdown\n\t\nAutomation Practice\n\nText Input Field:\t\tTextarea:\t\nPre-Filled Text Field:\t\tButton:\tClick Me (Green)\nPlaceholder Text Field:\t\tRead-Only Text Field:\t\nHTML SVG with rect:\t\t\n\nParagraph with Text:\n\n\t\n\nThis Text is Green\n\n\nInput Slider Control:\t\tProgress Bar: (50%)\t\nSelect Dropdown:\t\nSet to 25%\nSet to 50%\nSet to 75%\nSet to 100%\n\tHTML Meter: (25%)\t\n\nImage in iFrame:\n\t   \n\tRadioButton 1:\tRadioButton 2:\nCheckBox: \tCheckBoxes:   \tPre-Check Box: \tCheckBox in iFra"
+      },
+      "turnstile": {
+        "attempted": false,
+        "url": "https://seleniumbase.io/apps/turnstile",
+        "reason": "uc 模式原生 Driver 未暴露 solve_captcha()（UC 需先切换 CDP 模式）；按只试一次约束不在本模式尝试"
+      },
+      "close": {
+        "quit_ok": true,
+        "killed_pids": [],
+        "error": null
+      }
+    },
+    "cdp": {
+      "mode": "cdp",
+      "status": "ok",
+      "browser": {
+        "kind": "cdp",
+        "driver": "sb_cdp",
+        "headless": true,
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+      },
+      "launch_error": null,
+      "sannysoft": {
+        "url": "https://bot.sannysoft.com/",
+        "loaded": true,
+        "load_error": null,
+        "load_elapsed_s": 5.17,
+        "wait_s": 3,
+        "final_url": "https://bot.sannysoft.com/",
+        "title": "",
+        "elapsed_s": 8.17,
+        "collect_error": null,
+        "webdriver": false,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+        "plugins": 5,
+        "window_chrome": true,
+        "passed": 0,
+        "failed": 0,
+        "body_len": 0,
+        "body_excerpt": ""
+      },
+      "browserscan": {
+        "url": "https://www.browserscan.net/bot-detection",
+        "loaded": true,
+        "load_error": null,
+        "load_elapsed_s": 2.29,
+        "wait_s": 7,
+        "final_url": "https://www.browserscan.net/bot-detection",
+        "title": "BrowserScan - Robot Detection/WebDriver | BrowserScan",
+        "elapsed_s": 9.29,
+        "collect_error": null,
+        "summary": "Test Results: | Normal | Webdriver | User-Agent | CDP | Navigator | Browser bot detection guide | BrowserScan detects automated activities on scripts or browsers. It analyzes various browser properties to determine whether the browser environment is con",
+        "body_excerpt": "blog\nAntidetect Browser\nUtilities\nEN\nSign In\nHome\n>\nBot Detection\nTest Results:\nNormal\nWebdriver\nUser-Agent\nCDP\nNavigator\nBrowser bot detection guide\n\nBrowserScan detects automated activities on scripts or browsers. It analyzes various browser properties to determine whether the browser environment is controlled by a robot. Various human-machine verification products such as Cloudflare Turnstile and Google reCAPTCHA include this aspect of detection, which is usually divided into three categories:Bot Detection Service\n\nNormal bots - usually bots belonging to well-known search engines (Google, Bing, Baidu). It crawls websites to create a searchable index of content. A good bot can also be a monitoring or uptime checking tool.\nMalicious bots - Usually automated tools like Selenium, Puppeteer, Playwright or anything that pretends to be a good search bot. It can take over accounts, submit spam, steal passwords, scrape data, waste resources, and more.Discord bots.\nNo bots detected - the visitor could be a human using a regular browser.\nAd\nIdentification and bot detection\n\nThe combination of fingerprinting and bot detection gives you a powerful tool to protect against online fraud and produces the best results when used together.Compare Browsers\n\nWebDriver\nNormal\nWebDriver Advance\nNormal\nSelenium\nNormal\nNightmareJS\nNormal\nPhantomJS\nNormal\nAwesomium\nNormal\nCef\nNormal\nCefSharp\nNormal\nCoaches\nNormal\nFMiner\nNormal\nBorn\nNormal\nPhantomas\nNormal\nRhino\nNormal\nWebdriverio\nNormal\nHeadless Chrome\nNormal\nDiscover more\nPlugin Detection Tool\nWebdriverIO Automation Guide\nHeadless Chrome Tutorial\nBot Prevention Software\nSelenium Automation Course\nExplore Web Apps\nweb browsing\nAutomated Browser Testing\nSource Robotics\nChrome DevTools Protocol Detection\n\nDetectable use of developer tools to simulate browsers or control them via related developer protocols.Automation Tool Comparison\n\nCDP\nNormal\nDev Tool\nNormal\nNative Navigator\n\nDetect whether the Navigator is deceptive. Some browser plug-ins",
+        "keyword_flags": {
+          "Normal": true,
+          "Bot": true,
+          "WebDriver": true,
+          "Headless": true,
+          "Robot": true,
+          "Human": true
+        },
+        "detail_snippets": {
+          "WebDriver": "WebDriver Normal WebDriver Advance Normal Selenium Normal NightmareJS ",
+          "Headless Chrome": "Headless Chrome Normal Discover more Plugin Detection Tool WebdriverIO",
+          "CDP": "CDP Navigator Browser bot detection guide BrowserScan detects automat",
+          "Navigator": "Navigator Browser bot detection guide BrowserScan detects automated a"
+        }
+      },
+      "challenge": {
+        "url": "https://seleniumbase.io/demo_page",
+        "loaded": true,
+        "load_error": null,
+        "load_elapsed_s": 0.45,
+        "wait_s": 2,
+        "final_url": "https://seleniumbase.io/demo_page",
+        "title": "Web Testing Page",
+        "elapsed_s": 2.45,
+        "collect_error": null,
+        "false_positive": false,
+        "matches": {
+          "Just a moment": {
+            "title": false,
+            "text": false,
+            "html": false,
+            "any": false
+          },
+          "challenge-platform": {
+            "title": false,
+            "text": false,
+            "html": false,
+            "any": false
+          },
+          "cf-chl": {
+            "title": false,
+            "text": false,
+            "html": false,
+            "any": false
+          },
+          "Attention Required": {
+            "title": false,
+            "text": false,
+            "html": false,
+            "any": false
+          },
+          "Verify you are human": {
+            "title": false,
+            "text": false,
+            "html": false,
+            "any": false
+          }
+        },
+        "text_excerpt": "Demo Page\n\t\nSeleniumBase\n\t\nHover Dropdown\n\t\nAutomation Practice\n\nText Input Field:\t\tTextarea:\t\nPre-Filled Text Field:\t\tButton:\tClick Me (Green)\nPlaceholder Text Field:\t\tRead-Only Text Field:\t\nHTML SVG with rect:\t\t\n\nParagraph with Text:\n\n\t\n\nThis Text is Green\n\n\nInput Slider Control:\t\tProgress Bar: (50%)\t\nSelect Dropdown:\t\nSet to 25%\nSet to 50%\nSet to 75%\nSet to 100%\n\tHTML Meter: (25%)\t\n\nImage in iFrame:\n\t   \n\tRadioButton 1:\tRadioButton 2:\nCheckBox: \tCheckBoxes:   \tPre-Check Box: \tCheckBox in iFra"
+      },
+      "turnstile": {
+        "attempted": true,
+        "url": "https://seleniumbase.io/apps/turnstile",
+        "available": true,
+        "loaded": true,
+        "load_error": null,
+        "title_before": "Cloudflare Turnstile Test",
+        "has_solve_captcha": true,
+        "solve_result": null,
+        "solve_error": null,
+        "solve_timeout": false,
+        "solve_elapsed_s": 2.06,
+        "post": {
+          "success_visible": true,
+          "failure_visible": false,
+          "title": "Cloudflare Turnstile Test",
+          "url": "https://seleniumbase.io/apps/turnstile",
+          "body_excerpt": "\n\n\nCloudflare Turnstile Test\n\n\n"
+        },
+        "reason": null,
+        "url_after_redirect": "https://seleniumbase.io/apps/turnstile"
+      },
+      "close": {
+        "quit_ok": true,
+        "killed_pids": [],
+        "error": null
+      },
+      "relaunches": 0,
+      "errors": []
+    }
+  },
+  "notes": [
+    "任务给定的 Chrome 路径不存在（C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe），已回退到可用路径 C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Bin\\chrome.exe（版本 109.0.5414.120）。"
+  ]
+}

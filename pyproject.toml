@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "selsnap"
+version = "0.1.0"
+description = "Semantic, token-efficient Selenium MCP for agent teams"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+    "seleniumbase==4.56.5",
+    "mcp==2.3.0",
+    "pillow>=13.0.0",
+]
+
+[project.scripts]
+selsnap = "selsnap.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

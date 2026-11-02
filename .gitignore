@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+var/
+browsers/
+.cache/
+latest_logs/
+downloaded_files/
+*.log
+spikes/**/*.html
+spikes/**/profile*/
+spikes/**/downloaded_files/
+spikes/**/*.png
+spikes/**/*.pdf
