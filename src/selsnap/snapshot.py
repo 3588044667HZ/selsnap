@@ -30,7 +30,11 @@ SNAPSHOT_JS = r"""
     docId = "d" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
     rootEl.setAttribute("data-mcp-doc", docId);
   }
-  let refCounter = parseInt(rootEl.getAttribute("data-mcp-ref-counter") || "0", 10);
+  // 跨文档单调递增：新文档没有 counter 时从 REF_BASE 起编号，避免旧 ref 命中新元素
+  const REF_BASE = __REF_BASE__;
+  let refCounter = parseInt(
+    rootEl.getAttribute("data-mcp-ref-counter") || String(REF_BASE), 10
+  );
   let totalElements = 0;
   let visibleElements = 0;
   let included = 0;
@@ -288,6 +292,20 @@ def _attrs_text(attrs: dict[str, Any]) -> str:
     return (" " + " ".join(parts)) if parts else ""
 
 
+
+def render_node_head(node: dict[str, Any]) -> str:
+    role = node.get("role") or "element"
+    name = node.get("name") or ""
+    ref = node.get("ref") or ""
+    head = f"- {role}"
+    if name:
+        head += " " + json.dumps(name, ensure_ascii=False)
+    if ref:
+        head += f" [{ref}]"
+    head += _attrs_text(node.get("attrs") or {})
+    return head
+
+
 def render_snapshot(data: dict[str, Any], max_chars: int = 16000) -> tuple[str, dict[str, Any]]:
     tree = data.get("tree")
     if not isinstance(tree, dict):
@@ -325,16 +343,7 @@ def render_snapshot(data: dict[str, Any], max_chars: int = 16000) -> tuple[str, 
                 rendered += 1
             return
 
-        role = node.get("role") or "element"
-        name = node.get("name") or ""
-        ref = node.get("ref") or ""
-        head = f"{indent}- {role}"
-        if name:
-            head += " " + json.dumps(name, ensure_ascii=False)
-        if ref:
-            head += f" [{ref}]"
-        head += _attrs_text(node.get("attrs") or {})
-
+        head = indent + render_node_head(node)
         children = node.get("children") or []
         if children:
             if not add(head + ":"):
@@ -350,3 +359,62 @@ def render_snapshot(data: dict[str, Any], max_chars: int = 16000) -> tuple[str, 
     if truncated:
         lines.append(f"- [truncated: rendered {rendered} nodes, max_chars={max_chars}]")
     return "\n".join(lines), {"rendered_nodes": rendered, "truncated": truncated, "chars": size}
+
+
+def flatten_refs(tree: Any) -> dict[str, dict[str, Any]]:
+    nodes: dict[str, dict[str, Any]] = {}
+
+    def walk(node: Any) -> None:
+        if not isinstance(node, dict):
+            return
+        kind = node.get("type")
+        if kind == "element":
+            ref = node.get("ref")
+            if ref:
+                nodes[ref] = node
+        if kind in ("element", "fragment"):
+            for child in node.get("children") or []:
+                walk(child)
+
+    walk(tree)
+    return nodes
+
+
+def ref_order(ref: str) -> int:
+    try:
+        return int(ref[1:])
+    except (TypeError, ValueError):
+        return 0
+
+
+_ref_order = ref_order
+
+
+def diff_snapshots(old_tree: Any, new_tree: Any) -> dict[str, Any]:
+    old = flatten_refs(old_tree)
+    new = flatten_refs(new_tree)
+    added_refs = sorted(new.keys() - old.keys(), key=_ref_order)
+    removed_refs = sorted(old.keys() - new.keys(), key=_ref_order)
+    updated_refs = sorted(
+        (
+            ref
+            for ref in new.keys() & old.keys()
+            if render_node_head(old[ref]) != render_node_head(new[ref])
+        ),
+        key=_ref_order,
+    )
+    added = [render_node_head(new[ref]) for ref in added_refs]
+    removed = [render_node_head(old[ref]) for ref in removed_refs]
+    updated = [render_node_head(new[ref]) for ref in updated_refs]
+    changed_count = len(added) + len(removed) + len(updated)
+    base = max(len(old), len(new), 1)
+    return {
+        "changed": changed_count > 0,
+        "added": added,
+        "removed": removed,
+        "updated": updated,
+        "new_refs": added_refs,
+        "removed_refs": removed_refs,
+        "updated_refs": updated_refs,
+        "change_ratio": round(min(1.0, changed_count / base), 3),
+    }

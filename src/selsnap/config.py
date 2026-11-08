@@ -9,6 +9,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_BROWSER = PROJECT_ROOT / "browsers" / "chrome-win64" / "chrome.exe"
 
 VALID_MODES = ("standard", "uc", "cdp")
+MODE_ORDER = ("standard", "uc", "cdp")
 
 
 def default_browser_path() -> str:
@@ -30,9 +31,18 @@ class Settings:
     pool_size: int = 4
     command_timeout: float = 90.0
     page_load_timeout: float = 30.0
+    settle_timeout: float = 5.0
     snapshot_max_nodes: int = 800
     snapshot_max_chars: int = 16000
     token: str | None = None
+    tokens_json: str | None = None
+    default_agent: str = "local"
+    audit_enabled: bool = True
+    audit_dir: str = str(PROJECT_ROOT / "var")
+    artifact_dir: str = str(PROJECT_ROOT / "var" / "artifacts")
+    profile_root: str = str(PROJECT_ROOT / "var" / "profiles")
+    idle_timeout: float = 7200.0
+    idle_check_interval: float = 60.0
 
 
 def _env_bool(name: str, default: bool) -> bool:
@@ -75,6 +85,11 @@ def load_settings(argv: list[str] | None = None) -> Settings:
         default=_env_float("SELSNAP_PAGE_LOAD_TIMEOUT", 30.0),
     )
     parser.add_argument(
+        "--settle-timeout",
+        type=float,
+        default=_env_float("SELSNAP_SETTLE_TIMEOUT", 5.0),
+    )
+    parser.add_argument(
         "--snapshot-max-nodes",
         type=int,
         default=_env_int("SELSNAP_SNAPSHOT_MAX_NODES", 800),
@@ -85,6 +100,44 @@ def load_settings(argv: list[str] | None = None) -> Settings:
         default=_env_int("SELSNAP_SNAPSHOT_MAX_CHARS", 16000),
     )
     parser.add_argument("--token", default=os.environ.get("SELSNAP_TOKEN"))
+    parser.add_argument(
+        "--tokens-json", default=os.environ.get("SELSNAP_TOKENS")
+    )
+    parser.add_argument(
+        "--agent-name",
+        default=os.environ.get("SELSNAP_AGENT_NAME", "local"),
+    )
+    parser.add_argument(
+        "--audit",
+        action=argparse.BooleanOptionalAction,
+        default=_env_bool("SELSNAP_AUDIT", True),
+    )
+    parser.add_argument(
+        "--audit-dir",
+        default=os.environ.get("SELSNAP_AUDIT_DIR", str(PROJECT_ROOT / "var")),
+    )
+    parser.add_argument(
+        "--artifact-dir",
+        default=os.environ.get(
+            "SELSNAP_ARTIFACT_DIR", str(PROJECT_ROOT / "var" / "artifacts")
+        ),
+    )
+    parser.add_argument(
+        "--profile-root",
+        default=os.environ.get(
+            "SELSNAP_PROFILE_ROOT", str(PROJECT_ROOT / "var" / "profiles")
+        ),
+    )
+    parser.add_argument(
+        "--idle-timeout",
+        type=float,
+        default=_env_float("SELSNAP_IDLE_TIMEOUT", 7200.0),
+    )
+    parser.add_argument(
+        "--idle-check-interval",
+        type=float,
+        default=_env_float("SELSNAP_IDLE_CHECK_INTERVAL", 60.0),
+    )
     args = parser.parse_args(argv)
     return Settings(
         host=args.host,
@@ -95,7 +148,16 @@ def load_settings(argv: list[str] | None = None) -> Settings:
         pool_size=args.pool_size,
         command_timeout=args.command_timeout,
         page_load_timeout=args.page_load_timeout,
+        settle_timeout=args.settle_timeout,
         snapshot_max_nodes=args.snapshot_max_nodes,
         snapshot_max_chars=args.snapshot_max_chars,
         token=args.token,
+        tokens_json=args.tokens_json,
+        default_agent=args.agent_name,
+        audit_enabled=args.audit,
+        audit_dir=args.audit_dir,
+        artifact_dir=args.artifact_dir,
+        profile_root=args.profile_root,
+        idle_timeout=args.idle_timeout,
+        idle_check_interval=args.idle_check_interval,
     )
